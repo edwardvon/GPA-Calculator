@@ -17,7 +17,7 @@
 }
 
 .container {
-    padding: 10% 8%;
+    padding: 20% 8%;
 }
 
 .container h1 {
@@ -27,7 +27,7 @@
 
 .container p {
     font-size: 12px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     line-height: 20px;
 }
 
@@ -69,7 +69,7 @@
     }
     .container p {
         font-size: 18px;
-        margin-bottom: 0px;
+        margin-bottom: 30px;
         line-height: 26px;
     }
     .container img {
