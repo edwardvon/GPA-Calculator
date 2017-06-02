@@ -32,10 +32,9 @@
 }
 
 .container img {
-    height: auto;
-    width: auto;
-    max-height: 100px;
-    max-width: 200px;
+    height: 80px;
+    width: 160px;
+    
 }
 
 @media (max-width: 720px) {
@@ -70,7 +69,13 @@
     }
     .container p {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         line-height: 26px;
     }
+    .container img {
+    height: auto;
+    width: auto;
+    max-height: 100px;
+    max-width: 200px;
+}
 }
