@@ -1,0 +1,17 @@
+curriculum  curriculum_index      COLLEGE_NUM           INT  NOT NULL ,      学院序号
+                        #         YEAR    INT  NOT NULL ,                    年级
+                        #         COLLEGE        TEXT NOT NULL ,             学院名
+                        #         NUMBER         INT PRIMARY KEY NOT NULL,   专业号
+                        #         NAME           TEXT NOT NULL,              专业名
+                        #         SCORE_PUB      FLOAT NOT NULL,             毕业要求公共必修学分
+                        #         SCORE_CORE     FLOAT NOT NULL,             核心专业学分
+                        #         SCORE_SELE     FLOAT NOT NULL,             选修学分
+                        #         SCORE_DEV      FLOAT NOT NULL,             发展学分
+                        #         PS             TEXT                        附加信息（文科选修学分、理科选修学分）
+
+            curriculum_detail       ID INT PRIMARY KEY  NOT NULL ,
+                        #         NUMBER         INT NOT NULL,    课程编号
+                        #         NAME           TEXT NOT NULL,     课程名
+                        #         POINT          FLOAT NOT NULL,    学分
+                        #         TYPE           INT NOT NULL,      类型{1：公共必修；2：专业核心；3：选修}
+                        #         CLASS_NUM      INT NOT NULL,      专业号
