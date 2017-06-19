@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST!</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+</head>
+<body>
+{% if result_list %}
+    <div class="list">
+    <ul>
+        {% for item in result_list %}
+            <li><p>{{ item }}</p></li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+</body>
+</html>

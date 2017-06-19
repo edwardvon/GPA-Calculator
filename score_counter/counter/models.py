@@ -1,6 +1,76 @@
 from django.db import models
 
 # Create your models here.
+class MajorManager(models.Manager):
+    def get_all(self):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                SELECT * FROM counter_major
+                ''')
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row)
+        return result_list
+
+    def get_by_col(self,col):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                        SELECT %s FROM counter_major
+                        '''%col)
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row[0])
+        return result_list
+
+    def get_with_value(self,col,value):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                                SELECT * FROM counter_major
+                                  WHERE %s = %d
+                                ''' % (col,value))
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row)
+        return result_list
+
+class DetailManager(models.Manager):
+    def get_all(self):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                SELECT * FROM counter_detail
+                ''')
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row)
+        return result_list
+
+    def get_by_col(self,col):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                        SELECT %s FROM counter_detail
+                        '''%col)
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row[0])
+        return result_list
+
+    def get_with_value(self,col,value):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                                SELECT * FROM counter_detail
+                                  WHERE %s = %d
+                                ''' % (col,value))
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row)
+        return result_list
+
 class Major(models.Model):
     college_num = models.IntegerField()
     year = models.IntegerField()
@@ -12,6 +82,7 @@ class Major(models.Model):
     score_sele = models.FloatField()
     score_dev = models.FloatField()
     ps = models.TextField(null=True)
+    objects = MajorManager()
 
     def export(self):
         self.data = [self.college_num,self.year,self.college,self.number,self.name, \
@@ -32,6 +103,7 @@ class Detail(models.Model):
     point = models.FloatField()
     type = models.IntegerField()
     class_num = models.IntegerField()
+    objects = DetailManager()
 
     def export(self):
         self.data = [self.id,self.number,self.name,self.point,self.type,self.class_num]
