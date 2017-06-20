@@ -37,17 +37,17 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="118" column="60" lean-forward="false" selection-start-line="118" selection-start-column="2" selection-end-line="118" selection-end-column="60" />
+            <state relative-caret-position="255">
+              <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/score_counter/counter/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -184,7 +184,6 @@
         <option value="$PROJECT_DIR$/dbscapy/sql_test_detail.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/admin.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/css/style.css" />
-        <option value="$PROJECT_DIR$/score_counter/score_counter/settings.py" />
         <option value="$PROJECT_DIR$/score_counter/score_counter/urls.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/index2.html" />
         <option value="$PROJECT_DIR$/dbscapy/sql_test.py" />
@@ -193,6 +192,7 @@
         <option value="$PROJECT_DIR$/score_counter/counter/urls.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/detail.html" />
         <option value="$PROJECT_DIR$/score_counter/counter/views.py" />
+        <option value="$PROJECT_DIR$/score_counter/score_counter/settings.py" />
       </list>
     </option>
   </component>
@@ -930,14 +930,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/css/style.css" />
-    <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="118" column="60" lean-forward="false" selection-start-line="118" selection-start-column="2" selection-end-line="118" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dbscapy/sec1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1043,6 +1035,14 @@
           <folding>
             <element signature="e#23#58#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
