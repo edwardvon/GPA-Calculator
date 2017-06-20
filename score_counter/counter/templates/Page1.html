@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html manifest="demo.appcache">
+<head>
+<style>
+#header{ width:776px; margin-right: auto; margin-left: auto; padding: 0px; background: #EEE; height:60px; text-align:left; }
+#contain{ margin-right: auto; margin-left: auto; width: 700px; } 
+#mainbg{ width:776px; padding: 0px; background: #60A179; float: left; } 
+#right{ float: right; margin: 2px 0px 2px 0px; padding:0px; width: 574px; background: #ccd2de; text-align:left; } 
+#left{ float: left; margin: 2px 2px 0px 0px; padding: 0px; background: #F2F3F7; width: 200px; text-align:left; } 
+#footer{ clear:both; width:776px; margin-right: auto; margin-left: auto; margin-top:200px; padding: 0px;height:250px;}
+.text{margin:0px;padding:20px;} 
+.search { position:relative; width: 655px; }
+.search .searchText { border: 3px solid #000; width: 464px; line-height: 32px; height: 32px; padding: 0 5px; color: #000; outline:none; }
+.search .searchButton { position:absolute; right:50px; background: black -251px 0 no-repeat; width: 60px; height: 38px;  text-indent: -9999px; border:none;outline:none; }
+.bottomline{width:50%;text-align:center;border-top:3px solid #000; }
+.p{align:center; line-height:5px;}
+img {width: 31px;height: 31px;padding: 0px;}
+img:hover {width: 150px;height: 150px;padding: 0;}
+</style>
+</head>
+
+<body>
+<div id="contain" class="search fl" align="center" >
+    <form action="#">
+      <input class="searchText" type="text" value="请复制你的学分到这里" onfocus="if(this.value=='请复制你的学分到这里')this.value=''" onblur="if(this.value=='')this.value='请复制你的学分到这里'"/>
+      <input class="searchButton" type="button" value="搜索" onclick="" target="_blank"/>
+    </form>
+<div class="clear"></div>
+
+<div id="footer">
+<hr class="bottomline" />
+<p class="p">Created by</p>
+<p class="p">Email:GPAGET@gmail.com</p>
+<p class="p">Workroom:404Error</p>
+<p class="p">Scan our QR Code</p>
+<img src="url" />
+</div>
+
+</body>
+</html>
