@@ -14,27 +14,35 @@
     <SUITE FILE_PATH="coverage/html$sql_test_detail.coverage" NAME="sql_test_detail Coverage Results" MODIFIED="1497876880037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dbscapy" />
     <SUITE FILE_PATH="coverage/html$views.coverage" NAME="views Coverage Results" MODIFIED="1497888388758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/score_counter/counter" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="sec1.txt" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/dbscapy/sec1.txt">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="0">
+                    <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-59">
-              <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="9">
+              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/score_counter/score_counter/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="e#230#239#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -42,8 +50,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/score_counter/counter/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="485">
+              <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
               <folding>
                 <element signature="e#23#58#0" expanded="true" />
               </folding>
@@ -51,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
+      <file leaf-file-name="data1.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dbscapy/data1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="579">
+              <caret line="87" column="45" lean-forward="false" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -64,8 +72,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/score_counter/counter/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+            <state relative-caret-position="119">
+              <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -73,14 +81,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/score_counter/score_counter/urls.py">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-              <folding>
-                <element signature="e#647#687#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="374">
+              <caret line="22" column="11" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="22" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Page1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/Page1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,31 +114,28 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/score_counter/counter/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="31" column="76" lean-forward="false" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+            <state relative-caret-position="408">
+              <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
               <folding>
-                <marker date="1497959546262" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
-                <marker date="1497959546262" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="856:4553" ph="SELECT %s FR... " />
-                <marker date="1497959546262" expanded="true" signature="1156:1189" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1190" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1204" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1205" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1206" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1207" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1208" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1222" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1156:1224" ph="SELECT * FRO... counter_major" />
-                <marker date="1497959546262" expanded="true" signature="1889:1917" ph="SELECT * FRO... counter_detail" />
-                <marker date="1497959546262" expanded="true" signature="2361:2390" ph="SELECT missi... counter_detail" />
-                <marker date="1497959546262" expanded="true" signature="2754:2828" ph="SELECT * FRO... counter_detail" />
+                <marker date="1497978398345" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
+                <marker date="1497978398345" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="856:4706" ph="SELECT %s FR... " />
+                <marker date="1497978398345" expanded="true" signature="1334:1367" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="1334:1368" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="1334:1370" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="1334:1375" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="1334:1376" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="1334:1377" ph="SELECT * FRO... counter_major" />
+                <marker date="1497978398345" expanded="true" signature="2042:2070" ph="SELECT * FRO... counter_detail" />
+                <marker date="1497978398345" expanded="true" signature="2514:2543" ph="SELECT missi... counter_detail" />
+                <marker date="1497978398345" expanded="true" signature="2907:2981" ph="SELECT * FRO... counter_detail" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sql_test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sql_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbscapy/sql_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="337">
@@ -154,17 +177,19 @@
         <option value="$PROJECT_DIR$/dbscapy/sql_test_detail.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/admin.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/css/style.css" />
-        <option value="$PROJECT_DIR$/score_counter/score_counter/urls.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/index2.html" />
         <option value="$PROJECT_DIR$/dbscapy/sql_test.py" />
-        <option value="$PROJECT_DIR$/score_counter/counter/models.py" />
-        <option value="$PROJECT_DIR$/score_counter/counter/templates/index.html" />
-        <option value="$PROJECT_DIR$/score_counter/counter/urls.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/detail.html" />
-        <option value="$PROJECT_DIR$/score_counter/counter/views.py" />
         <option value="$PROJECT_DIR$/score_counter/score_counter/wsgi.py" />
-        <option value="$PROJECT_DIR$/score_counter/score_counter/settings.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/static/css/style.css" />
+        <option value="$PROJECT_DIR$/score_counter/score_counter/settings.py" />
+        <option value="$PROJECT_DIR$/score_counter/score_counter/urls.py" />
+        <option value="$PROJECT_DIR$/score_counter/counter/urls.py" />
+        <option value="$PROJECT_DIR$/score_counter/counter/templates/Page1.html" />
+        <option value="$PROJECT_DIR$/dbscapy/data1.txt" />
+        <option value="$PROJECT_DIR$/score_counter/counter/models.py" />
+        <option value="$PROJECT_DIR$/score_counter/counter/views.py" />
+        <option value="$PROJECT_DIR$/score_counter/counter/templates/index.html" />
       </list>
     </option>
   </component>
@@ -580,6 +605,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f9179d3c-6085-4e2a-8820-d067161b72f8" name="Default" comment="" />
@@ -685,7 +713,7 @@
         <state relative-caret-position="51">
           <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -695,22 +723,19 @@
         <state relative-caret-position="204">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
           <folding>
-            <marker date="1497959546262" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
-            <marker date="1497959546262" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:4553" ph="SELECT %s FR... " />
-            <marker date="1497959546262" expanded="true" signature="1156:1189" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1190" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1204" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1205" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1206" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1207" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1208" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1222" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1224" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1889:1917" ph="SELECT * FRO... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2361:2390" ph="SELECT missi... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2754:2828" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
+            <marker date="1497978398345" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:4706" ph="SELECT %s FR... " />
+            <marker date="1497978398345" expanded="true" signature="1334:1367" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1368" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1370" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1375" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1376" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1377" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="2042:2070" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2514:2543" ph="SELECT missi... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2907:2981" ph="SELECT * FRO... counter_detail" />
           </folding>
         </state>
       </provider>
@@ -774,7 +799,7 @@
         <state relative-caret-position="51">
           <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,22 +809,19 @@
         <state relative-caret-position="204">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
           <folding>
-            <marker date="1497959546262" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
-            <marker date="1497959546262" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:4553" ph="SELECT %s FR... " />
-            <marker date="1497959546262" expanded="true" signature="1156:1189" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1190" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1204" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1205" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1206" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1207" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1208" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1222" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1224" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1889:1917" ph="SELECT * FRO... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2361:2390" ph="SELECT missi... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2754:2828" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
+            <marker date="1497978398345" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:4706" ph="SELECT %s FR... " />
+            <marker date="1497978398345" expanded="true" signature="1334:1367" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1368" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1370" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1375" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1376" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1377" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="2042:2070" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2514:2543" ph="SELECT missi... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2907:2981" ph="SELECT * FRO... counter_detail" />
           </folding>
         </state>
       </provider>
@@ -847,22 +869,19 @@
         <state relative-caret-position="1785">
           <caret line="105" column="20" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
           <folding>
-            <marker date="1497959546262" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
-            <marker date="1497959546262" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:4553" ph="SELECT %s FR... " />
-            <marker date="1497959546262" expanded="true" signature="1156:1189" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1190" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1204" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1205" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1206" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1207" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1208" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1222" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1224" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1889:1917" ph="SELECT * FRO... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2361:2390" ph="SELECT missi... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2754:2828" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
+            <marker date="1497978398345" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:4706" ph="SELECT %s FR... " />
+            <marker date="1497978398345" expanded="true" signature="1334:1367" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1368" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1370" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1375" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1376" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1377" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="2042:2070" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2514:2543" ph="SELECT missi... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2907:2981" ph="SELECT * FRO... counter_detail" />
           </folding>
         </state>
       </provider>
@@ -872,7 +891,7 @@
         <state relative-caret-position="51">
           <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,53 +945,16 @@
         <state relative-caret-position="68">
           <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/models.py">
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="31" column="76" lean-forward="false" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
-          <folding>
-            <marker date="1497959546262" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
-            <marker date="1497959546262" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="856:4553" ph="SELECT %s FR... " />
-            <marker date="1497959546262" expanded="true" signature="1156:1189" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1190" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1204" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1205" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1206" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1207" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1208" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1222" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1156:1224" ph="SELECT * FRO... counter_major" />
-            <marker date="1497959546262" expanded="true" signature="1889:1917" ph="SELECT * FRO... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2361:2390" ph="SELECT missi... counter_detail" />
-            <marker date="1497959546262" expanded="true" signature="2754:2828" ph="SELECT * FRO... counter_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#58#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -986,53 +968,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbscapy/sec1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59">
-          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="9">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/score_counter/score_counter/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="340">
+          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding>
             <element signature="e#647#687#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="100" lean-forward="false" selection-start-line="12" selection-start-column="100" selection-end-line="12" selection-end-column="100" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1052,6 +1002,88 @@
             <marker date="1497959262354" expanded="true" signature="1222:1256" ph="DROP TABLE I... " />
             <marker date="1497959262354" expanded="true" signature="1291:1728" ph="CREATE TABLE... counter_index" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbscapy/sec1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding>
+            <marker date="1497978398345" expanded="true" signature="248:270" ph="SELECT * FRO... MAJOR" />
+            <marker date="1497978398345" expanded="true" signature="248:275" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:884" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="856:4706" ph="SELECT %s FR... " />
+            <marker date="1497978398345" expanded="true" signature="1334:1367" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1368" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1370" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1375" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1376" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="1334:1377" ph="SELECT * FRO... counter_major" />
+            <marker date="1497978398345" expanded="true" signature="2042:2070" ph="SELECT * FRO... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2514:2543" ph="SELECT missi... counter_detail" />
+            <marker date="1497978398345" expanded="true" signature="2907:2981" ph="SELECT * FRO... counter_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/Page1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="22" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="50" lean-forward="false" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding>
+            <element signature="e#23#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbscapy/data1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="87" column="45" lean-forward="false" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

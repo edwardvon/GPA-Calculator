@@ -15,5 +15,22 @@
     </ul>
     </div>
 {% endif %}
+
+{% if lesson_list %}
+<h3>{{ name }}同学</h3>
+{% for key, value in range.items %}
+    <div class="list">
+        <h2>{{value}}</h2>
+    <ul>
+        {% for item in lesson_list %}
+        {% if item.type == key %}
+            <li><p>{{ item }}</p></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <br>
+    </div>
+{% endfor %}
+{% endif %}
 </body>
 </html>

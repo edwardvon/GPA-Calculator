@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html manifest="demo.appcache">
 <head>
+    <meta charset="UTF-8">
 <style>
 #header{ width:776px; margin-right: auto; margin-left: auto; padding: 0px; background: #EEE; height:60px; text-align:left; }
 #contain{ margin-right: auto; margin-left: auto; width: 700px; } 
@@ -21,9 +22,10 @@ img:hover {width: 150px;height: 150px;padding: 0;}
 
 <body>
 <div id="contain" class="search fl" align="center" >
-    <form action="#">
-      <input class="searchText" type="text" value="请复制你的学分到这里" onfocus="if(this.value=='请复制你的学分到这里')this.value=''" onblur="if(this.value=='')this.value='请复制你的学分到这里'"/>
-      <input class="searchButton" type="button" value="搜索" onclick="" target="_blank"/>
+    <form action="{% url 'counter:submit' %}" method="POST">
+        {% csrf_token %}
+      <input name="content" class="searchText" type="text" value="璇峰鍒朵綘鐨勫鍒嗗埌杩欓噷" onfocus="if(this.value=='璇峰鍒朵綘鐨勫鍒嗗埌杩欓噷')this.value=''" onblur="if(this.value=='')this.value='璇峰鍒朵綘鐨勫鍒嗗埌杩欓噷'"/>
+      <input class="searchButton" type="submit" value="鎼滅储" onclick="" target="_blank"/>
     </form>
 <div class="clear"></div>
 

@@ -27,9 +27,14 @@ class MajorManager(models.Manager):
                 result_list.append(row[0])
         return result_list
 
-    def get_with_value(self,col,value):
+    def get_with_value(self,col,value,col1='',value1=''):
         from django.db import connection
-        sql = 'SELECT * FROM counter_major WHERE '+str(col)+' = "'+str(value) +'";'
+        a = str(col)+' = "'+str(value) +'"'
+        if not col1=='':
+            b = ' and '+str(col1)+' = "'+str(value1) +'"'
+        else:
+            b = ''
+        sql = 'SELECT * FROM counter_major WHERE '+a+b+';'
         with connection.cursor() as cursor:
             cursor.execute(sql)
             result_list = []
