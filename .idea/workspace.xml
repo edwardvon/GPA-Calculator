@@ -37,11 +37,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9">
-              <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="298">
+              <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -101,7 +101,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="485">
@@ -182,7 +182,6 @@
         <option value="$PROJECT_DIR$/score_counter/counter/templates/detail.html" />
         <option value="$PROJECT_DIR$/score_counter/score_counter/wsgi.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/static/css/style.css" />
-        <option value="$PROJECT_DIR$/score_counter/score_counter/settings.py" />
         <option value="$PROJECT_DIR$/score_counter/score_counter/urls.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/urls.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/Page1.html" />
@@ -190,6 +189,7 @@
         <option value="$PROJECT_DIR$/score_counter/counter/models.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/views.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/index.html" />
+        <option value="$PROJECT_DIR$/score_counter/score_counter/settings.py" />
       </list>
     </option>
   </component>
@@ -968,14 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/score_counter/score_counter/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1083,6 +1075,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
           <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/score_counter/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="27" column="22" lean-forward="false" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding />
         </state>
       </provider>
