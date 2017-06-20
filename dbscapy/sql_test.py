@@ -29,8 +29,8 @@ def delete(conn, sql=''):
         conn.execute('''DELETE from curriculum''')
 
 def select(conn, table, flag=''):
-    sql = "SELECT * from "+table+flag
-    data = conn.execute(sql)
+    # sql = 'SELECT * from counter_index WHERE college = "光电工程学院";'
+    data = conn.execute("""SELECT * from counter_index WHERE college = "光电工程学院";""")
     return data
 
 
@@ -38,21 +38,21 @@ def select(conn, table, flag=''):
 #     a = input("Are you sure to RESTORE CURRICULUM_INDEX?(YES to go)")
 #     if not a =='YES':
 #         return
-conn.execute('''DROP TABLE IF EXISTS counter_index;''')
-try:
-    conn.execute('''CREATE TABLE counter_index (
-        COLLEGE_NUM           INT  NOT NULL ,
-        YEAR    INT  NOT NULL ,
-        COLLEGE        TEXT NOT NULL ,
-        NUMBER         INT PRIMARY KEY NOT NULL,
-        NAME           TEXT NOT NULL,
-        SCORE_PUB      FLOAT NOT NULL,
-        SCORE_CORE     FLOAT NOT NULL,
-        SCORE_SELE     FLOAT NOT NULL,
-        SCORE_DEV      FLOAT NOT NULL,
-        PS             TEXT);''')
-except sqlite3.Error as err:
-    print(err)
+# conn.execute('''DROP TABLE IF EXISTS counter_index;''')
+# try:
+#     conn.execute('''CREATE TABLE counter_index (
+#         COLLEGE_NUM           INT  NOT NULL ,
+#         YEAR    INT  NOT NULL ,
+#         COLLEGE        TEXT NOT NULL ,
+#         NUMBER         INT PRIMARY KEY NOT NULL,
+#         NAME           TEXT NOT NULL,
+#         SCORE_PUB      FLOAT NOT NULL,
+#         SCORE_CORE     FLOAT NOT NULL,
+#         SCORE_SELE     FLOAT NOT NULL,
+#         SCORE_DEV      FLOAT NOT NULL,
+#         PS             TEXT);''')
+# except sqlite3.Error as err:
+#     print(err)
 
 def index_refresh(conn):
     for year in [2013,2014,2015,2016]:
@@ -65,7 +65,7 @@ def index_refresh(conn):
                 insert(conn,data)
     conn.commit()
 
-index_refresh(conn)
+# index_refresh(conn)
 a = select(conn,'counter_index')
 for i in a :
     print(i)

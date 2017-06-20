@@ -10,15 +10,18 @@ class MajorManager(models.Manager):
                 ''')
             result_list = []
             for row in cursor.fetchall():
-                result_list.append(row)
+                p = self.model(college_num=row[0],year=row[1],college=row[2], \
+                               number=row[3],name=row[4],score_pub=row[5],score_core=row[6], \
+                               score_sele=row[7],score_dev=row[8],ps=row[9])
+                result_list.append(p)
         return result_list
 
     def get_by_col(self,col):
         from django.db import connection
         with connection.cursor() as cursor:
-            cursor.execute('''
+            cursor.execute("""
                         SELECT %s FROM counter_major
-                        '''%col)
+                        """%col)
             result_list = []
             for row in cursor.fetchall():
                 result_list.append(row[0])
@@ -26,14 +29,15 @@ class MajorManager(models.Manager):
 
     def get_with_value(self,col,value):
         from django.db import connection
+        sql = 'SELECT * FROM counter_major WHERE '+str(col)+' = "'+str(value) +'";'
         with connection.cursor() as cursor:
-            cursor.execute('''
-                                SELECT * FROM counter_major
-                                  WHERE %s = %d
-                                ''' % (col,value))
+            cursor.execute(sql)
             result_list = []
             for row in cursor.fetchall():
-                result_list.append(row)
+                p = self.model(college_num=row[0], year=row[1], college=row[2], \
+                               number=row[3], name=row[4], score_pub=row[5], score_core=row[6], \
+                               score_sele=row[7], score_dev=row[8], ps=row[9])
+                result_list.append(p)
         return result_list
 
 class DetailManager(models.Manager):
@@ -45,7 +49,8 @@ class DetailManager(models.Manager):
                 ''')
             result_list = []
             for row in cursor.fetchall():
-                result_list.append(row)
+                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], type=row[4], class_num=row[5])
+                result_list.append(p)
         return result_list
 
     def get_by_col(self,col):
@@ -64,11 +69,12 @@ class DetailManager(models.Manager):
         with connection.cursor() as cursor:
             cursor.execute('''
                                 SELECT * FROM counter_detail
-                                  WHERE %s = %d
-                                ''' % (col,value))
+                                  WHERE %s = %s
+                                ''' % (col,str(value)))
             result_list = []
             for row in cursor.fetchall():
-                result_list.append(row)
+                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], type=row[4], class_num=row[5])
+                result_list.append(p)
         return result_list
 
 class Major(models.Model):

@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = 'counter'
 urlpatterns = [
-    url(r'^123$', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
+    url(r'^(?P<number>[0-9]+)/$', views.detail, name='detail'),
 ]
