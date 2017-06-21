@@ -1,7 +1,9 @@
-.list{
+body{
+    text-align: center;
     font-size: 12px;
-    color: brown;
 }
-.list a{
-    font-size: 12px;
+
+.container{
+    margin: auto;
+    width: 1000px;
 }

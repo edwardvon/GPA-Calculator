@@ -1,10 +1,13 @@
 # -*- coding:utf-8 -*-
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from django.shortcuts import render
-
+from django.urls import reverse
+from django.db import connection,Error
 from .models import Major,Detail,Score
 
 # Create your views here.
+fuck_thisname = ''
+
 def index(request):
     result_list = []
     result_list = Major.objects.get_with_value('college','信息工程学院')
@@ -13,14 +16,41 @@ def index(request):
     }
     return render(request, 'Page1.html', context)
 
-def detail(request,number):
-    result_list = Detail.objects.get_with_value('class_num', int(number))
+def detail(request,stu_num):
+    global fuck_thisname
+    # result_list = Score.objects.get_with_value('stu_num', int(stu_num))
+    result_list = get_view(stu_num)
     range1 = {1:'公共必修课程',2:'专业核心课程',3:'专业选修课程'}
     context = {
         'result_list': result_list,
-        'range': range1
+        'range': range1,
+        'name': fuck_thisname,
     }
     return render(request, 'detail.html', context)
+
+
+def submit(request):
+    global fuck_thisname
+    gpa_content = request.POST['content']
+    gpa_content = gpa_content.replace(':','\t')
+    gpa_content = gpa_content.split('\t')
+    try:
+        index = gpa_content.index('姓名')
+    except ValueError:
+        return render(request, 'Page1.html', {'error_message': "噢！同学你是不是复制错了，看看说明吧"})
+    stu_number = gpa_content[index-1]
+    fuck_thisname = gpa_content[index+1]
+    stu_class_name = gpa_content[index+5].split(' ')[0]
+    major_num = Major.objects.get_with_value('name',stu_class_name,'year',stu_number[0:4])[0].number
+    # lesson_list = Detail.objects.get_with_value('class_num', int(result_list[0].number))
+    view_create(stu_number,major_num)
+    result_list = spilt_by_term(gpa_content, stu_number)
+    score_insert(result_list,stu_number,major_num)
+    return HttpResponseRedirect(reverse('counter:detail', args=(stu_number,)))
+
+def result(request,stu_num):
+    pass
+
 
 #将分割成列表的成绩表以学期为单位分割
 def spilt_by_term(content_list, item):
@@ -54,27 +84,23 @@ def score_insert(list,stu_num,class_num):
         Score.objects.score_init(a)
     return 1
 
-def submit(request):
-    range1 = {1:'公共必修课程',2:'专业核心课程',3:'专业选修课程'}
-    gpa_content = request.POST['content']
-    gpa_content = gpa_content.replace(':','\t')
-    gpa_content = gpa_content.split('\t')
-    try:
-        index = gpa_content.index('姓名')
-    except ValueError:
-        return render(request, 'Page1.html', {'error_message': "噢！同学你是不是复制错了，看看说明吧"})
-    stu_number = gpa_content[index-1]
-    stu_class_name = gpa_content[index+5].split(' ')[0]
-    major_num = Major.objects.get_with_value('name',stu_class_name,'year',stu_number[0:4])[0].number
-    # lesson_list = Detail.objects.get_with_value('class_num', int(result_list[0].number))
-    result_list = spilt_by_term(gpa_content, stu_number)
-    score_insert(result_list,stu_number,major_num)
-    fuck = Score.objects.get_all()
-    context = {
-        # 'lesson_list': lesson_list,
-        # 'range': range1,
-        'name': major_num,
-        # 'a': a,
-        'result':fuck,
-    }
-    return render(request, 'index.html', context)
+def view_create(stu_num, class_num):
+    with connection.cursor() as cursor:
+        cursor.execute("DROP VIEW IF EXISTS %s"%('view'+str(stu_num)))
+        try:
+            cursor.execute("CREATE VIEW %s AS SELECT * FROM counter_detail WHERE CLASS_NUM=%s;"%('view'+str(stu_num),str(class_num)))
+        except Error as err:
+            print(err)
+        return 1
+
+def get_view(stu_num):
+    with connection.cursor() as cursor:
+        try:
+            cursor.execute("SELECT * FROM %s"%('view'+str(stu_num)))
+        except Error as err:
+            print(err)
+        result_list = []
+        for row in cursor.fetchall():
+            p = Detail.objects.model(id=row[0], number=row[1], name=row[2], point=row[3], type=row[4], class_num=row[5])
+            result_list.append(p)
+    return result_list

@@ -4,6 +4,7 @@ from . import views
 app_name = 'counter'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^(?P<number>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^(?P<stu_num>[0-9]+)/$', views.detail, name='detail'),
     url(r'submit/$', views.submit, name='submit'),
+    url(r'^(?P<stu_num>[0-9]+)/result/$', views.result, name='result'),
 ]

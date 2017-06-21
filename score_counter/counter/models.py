@@ -54,7 +54,8 @@ class DetailManager(models.Manager):
                 ''')
             result_list = []
             for row in cursor.fetchall():
-                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], type=row[4], class_num=row[5])
+                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], \
+                               type=row[4], class_num=row[5],if_complete=row[6])
                 result_list.append(p)
         return result_list
 
@@ -78,7 +79,8 @@ class DetailManager(models.Manager):
                                 ''' % (col,str(value)))
             result_list = []
             for row in cursor.fetchall():
-                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], type=row[4], class_num=row[5])
+                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], \
+                               type=row[4], class_num=row[5],if_complete=row[6])
                 result_list.append(p)
         return result_list
 
@@ -114,6 +116,7 @@ class Detail(models.Model):
     point = models.FloatField()
     type = models.IntegerField()
     class_num = models.IntegerField()
+    if_complete = models.BooleanField(default=0)
     objects = DetailManager()
 
     def export(self):

@@ -6,20 +6,30 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
 </head>
 <body>
-{% if result_list %}
-{% for key, value in range.items %}
-    <div class="list">
-        <h2>{{value}}</h2>
-    <ul>
-        {% for item in result_list %}
-        {% if item.type == key %}
-            <li><p>{{ item }}</p></li>
-        {% endif %}
+    <div class="container">
+        <h3>{{name}}同学，请确认这是你的培养方案内容</h3>
+        {% if result_list %}
+        {% for key, value in range.items %}
+            <div class="list">
+                <h2>{{value}}</h2>
+            <table>
+                <tr>
+                    <td>课程编号</td><td>课程名</td><td>学分</td>
+                </tr>
+                {% for item in result_list %}
+                {% if item.type == key %}
+                <tr>
+                    <td>{{item.number}}</td>
+                    <td width="500px">{{item.name}}</td>
+                    <td>{{item.point}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+            <br>
+            </div>
         {% endfor %}
-    </ul>
-    <br>
+        {% endif %}
     </div>
-{% endfor %}
-{% endif %}
 </body>
 </html>
