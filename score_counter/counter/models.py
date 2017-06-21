@@ -126,3 +126,93 @@ class Detail(models.Model):
         for item in self.data:
             this_str = this_str+str(item) +' '
         return this_str
+
+class ScoreManager(models.Manager):
+    def get_all(self):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                SELECT * FROM counter_score
+                ''')
+            result_list = []
+            for row in cursor.fetchall():
+                p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
+                               point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
+                               gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
+                result_list.append(p)
+        return result_list
+
+    def get_by_col(self,col):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                        SELECT %s FROM counter_score
+                        '''%col)
+            result_list = []
+            for row in cursor.fetchall():
+                result_list.append(row[0])
+        return result_list
+
+    def get_with_value(self,col,value):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                                SELECT * FROM counter_score
+                                  WHERE %s = %s
+                                ''' % (col,str(value)))
+            result_list = []
+            for row in cursor.fetchall():
+                p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
+                               point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
+                               gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
+                result_list.append(p)
+        return result_list
+
+    def insert_score(self,data):
+        from django.db import connection,Error
+        with connection.cursor() as cursor:
+            try:
+                cursor.execute('''INSERT INTO counter_score (term,number,name,type_c,point,get_point,  \
+                    grade,gpa,gpa_t,stu_num,class_num) VALUES (?,?,?,?,?,?,?,?,?,?,?)''',data)
+            except Error as err:
+                print(err)
+        return 1
+
+    def score_init(self,data):
+        row = data
+        # try:
+        Score.objects.update_or_create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
+                       point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
+                       gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
+        # except:
+        #     print("err")
+        return 1
+
+
+class Score(models.Model):
+    id = models.IntegerField(primary_key=True)
+    term = models.IntegerField()
+    number = models.CharField(max_length=10)
+    name = models.TextField()
+    type_c = models.TextField()
+    point = models.FloatField()
+    get_point = models.FloatField()
+    grade = models.CharField(max_length=3)
+    gpa = models.FloatField()
+    gpa_t = models.FloatField()
+    type = models.IntegerField()
+    stu_num = models.IntegerField()
+    class_num = models.IntegerField()
+    objects = ScoreManager()
+
+    def export(self):
+        self.data = [self.term,self.number,self.name,self.type_c,self.point, \
+                self.get_point,self.grade,self.gpa,self.gpa_t,self.stu_num,self.class_num]
+        return self.data
+
+    def __str__(self):
+        self.export()
+        this_str = ''
+        for i in range(0,11):
+            this_str = this_str + str(self.data[i])+' '
+        return this_str

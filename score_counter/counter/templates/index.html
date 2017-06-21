@@ -1,4 +1,5 @@
 <!DOCTYPE>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>TEST!</title>
@@ -14,6 +15,15 @@
         {% endfor %}
     </ul>
     </div>
+{% endif %}
+<p>{{ name }}</p>
+<p>{{a}}</p>
+<br>
+{% if result %}
+{% for i in result %}
+<p>{{ i }}</p>
+<br>
+{% endfor %}
 {% endif %}
 
 {% if lesson_list %}

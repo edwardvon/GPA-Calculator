@@ -27,7 +27,7 @@ img:hover {width: 150px;height: 150px;padding: 0;}
       <input name="content" class="searchText" type="text" value="请复制你的学分到这里" onfocus="if(this.value=='请复制你的学分到这里')this.value=''" onblur="if(this.value=='')this.value='请复制你的学分到这里'"/>
       <input class="searchButton" type="submit" value="搜索" onclick="" target="_blank"/>
     </form>
-<div class="clear"></div>
+<div class="clear">{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}</div>
 
 <div id="footer">
 <hr class="bottomline" />
