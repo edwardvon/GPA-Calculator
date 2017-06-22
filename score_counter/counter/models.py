@@ -16,35 +16,6 @@ class MajorManager(models.Manager):
                 result_list.append(p)
         return result_list
 
-    def get_by_col(self,col):
-        from django.db import connection
-        with connection.cursor() as cursor:
-            cursor.execute("""
-                        SELECT %s FROM counter_major
-                        """%col)
-            result_list = []
-            for row in cursor.fetchall():
-                result_list.append(row[0])
-        return result_list
-
-    def get_with_value(self,col,value,col1='',value1=''):
-        from django.db import connection
-        a = str(col)+' = "'+str(value) +'"'
-        if not col1=='':
-            b = ' and '+str(col1)+' = "'+str(value1) +'"'
-        else:
-            b = ''
-        sql = 'SELECT * FROM counter_major WHERE '+a+b+';'
-        with connection.cursor() as cursor:
-            cursor.execute(sql)
-            result_list = []
-            for row in cursor.fetchall():
-                p = self.model(college_num=row[0], year=row[1], college=row[2], \
-                               number=row[3], name=row[4], score_pub=row[5], score_core=row[6], \
-                               score_sele=row[7], score_dev=row[8], ps=row[9])
-                result_list.append(p)
-        return result_list
-
 class DetailManager(models.Manager):
     def get_all(self):
         from django.db import connection
@@ -59,30 +30,74 @@ class DetailManager(models.Manager):
                 result_list.append(p)
         return result_list
 
-    def get_by_col(self,col):
+class ScoreManager(models.Manager):
+    def get_all(self):
         from django.db import connection
         with connection.cursor() as cursor:
             cursor.execute('''
-                        SELECT %s FROM counter_detail
-                        '''%col)
+                SELECT * FROM counter_score
+                ''')
             result_list = []
             for row in cursor.fetchall():
-                result_list.append(row[0])
-        return result_list
-
-    def get_with_value(self,col,value):
-        from django.db import connection
-        with connection.cursor() as cursor:
-            cursor.execute('''
-                                SELECT * FROM counter_detail
-                                  WHERE %s = %s
-                                ''' % (col,str(value)))
-            result_list = []
-            for row in cursor.fetchall():
-                p = self.model(id=row[0], number=row[1], name=row[2], point=row[3], \
-                               type=row[4], class_num=row[5],if_complete=row[6])
+                p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
+                               point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
+                               gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
                 result_list.append(p)
         return result_list
+
+    def score_init(self,data):
+        row = data
+        # try:
+        Score.objects.update_or_create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
+                       point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
+                       gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
+        # except:
+        #     print("err")
+        return 1
+
+class MajorScoreManager(models.Manager):
+    def get_all(self):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                SELECT * FROM counter_majorscore
+                ''')
+            result_list = []
+            for row in cursor.fetchall():
+                p = self.model(id=row[0], lesson_num=row[1], lesson_name=row[2], point=row[3], type=row[4], \
+                               class_num=row[5], stu_num=row[6], grade=row[7], if_complete=row[8])
+                result_list.append(p)
+        return result_list
+
+    def majorscore_init(self,stu_number,class_number):
+        request_list = Detail.objects.filter(class_num=class_number)
+        for item in request_list:
+            # grades = Score.objects.filter(number__contains=item.number)
+            # comp = 1
+            # if not grades:
+            #     grade = [0]
+            #     comp = 0
+            MajorScore.objects.update_or_create(lesson_num=item.number, lesson_name=item.name, point=item.point,\
+                                           type=item.type, class_num=class_number, stu_num=stu_number,\
+                                           if_complete=0)
+        return 1
+
+    def majorscore_join(self,stu_number):
+        request_list = MajorScore.objects.filter(stu_num=stu_number,type__lte=2)
+        for item in request_list:
+            a = []
+            com = 1
+            grades = Score.objects.filter(number__contains=item.lesson_num[:-1],stu_num=stu_number)
+            if not len(grades)==0:
+                for i in grades:
+                    a.append(i.grade)
+                    Score.objects.filter(id=i.id).update(type=item.type)
+            else:
+                a = [0]
+            if min(a)=='F' or min(a)==0:
+                com = 0
+            MajorScore.objects.filter(id=item.id).update(grade=min(a), if_complete=com)
+        return 1
 
 class Major(models.Model):
     college_num = models.IntegerField()
@@ -130,67 +145,6 @@ class Detail(models.Model):
             this_str = this_str+str(item) +' '
         return this_str
 
-class ScoreManager(models.Manager):
-    def get_all(self):
-        from django.db import connection
-        with connection.cursor() as cursor:
-            cursor.execute('''
-                SELECT * FROM counter_score
-                ''')
-            result_list = []
-            for row in cursor.fetchall():
-                p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
-                               point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
-                               gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
-                result_list.append(p)
-        return result_list
-
-    def get_by_col(self,col):
-        from django.db import connection
-        with connection.cursor() as cursor:
-            cursor.execute('''
-                        SELECT %s FROM counter_score
-                        '''%col)
-            result_list = []
-            for row in cursor.fetchall():
-                result_list.append(row[0])
-        return result_list
-
-    def get_with_value(self,col,value):
-        from django.db import connection
-        with connection.cursor() as cursor:
-            cursor.execute('''
-                                SELECT * FROM counter_score
-                                  WHERE %s = %s
-                                ''' % (col,str(value)))
-            result_list = []
-            for row in cursor.fetchall():
-                p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
-                               point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
-                               gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
-                result_list.append(p)
-        return result_list
-
-    def insert_score(self,data):
-        from django.db import connection,Error
-        with connection.cursor() as cursor:
-            try:
-                cursor.execute('''INSERT INTO counter_score (term,number,name,type_c,point,get_point,  \
-                    grade,gpa,gpa_t,stu_num,class_num) VALUES (?,?,?,?,?,?,?,?,?,?,?)''',data)
-            except Error as err:
-                print(err)
-        return 1
-
-    def score_init(self,data):
-        row = data
-        # try:
-        Score.objects.update_or_create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
-                       point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
-                       gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
-        # except:
-        #     print("err")
-        return 1
-
 
 class Score(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -219,3 +173,15 @@ class Score(models.Model):
         for i in range(0,11):
             this_str = this_str + str(self.data[i])+' '
         return this_str
+
+class MajorScore(models.Model):
+    id = models.IntegerField(primary_key=True)
+    lesson_num = models.CharField(max_length=10)
+    lesson_name = models.TextField()
+    point = models.FloatField()
+    type = models.IntegerField()
+    class_num = models.IntegerField()
+    stu_num = models.IntegerField()
+    grade = models.CharField(max_length=3, null=False)
+    if_complete = models.BooleanField(default=0)
+    objects = MajorScoreManager()

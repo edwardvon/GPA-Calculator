@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.db import connection,Error
-from .models import Major,Detail,Score
+from .models import Major,Detail,Score,MajorScore
 
 # Create your views here.
 fuck_thisname = ''
@@ -13,17 +13,19 @@ def index(request):
 
 def detail(request,stu_num):
     global fuck_thisname
-    # result_list = Score.objects.get_with_value('stu_num', int(stu_num))
-    result_list = get_view(stu_num)
-    stu_class_num = result_list[0].class_num
+    stu_num = int(stu_num)
+    stu_class_num = Score.objects.filter(stu_num=stu_num)[0].class_num
     major = Major.objects.filter(number=stu_class_num)[0]
-    score_request = [major.score_pub,major.score_core,major.score_sele,major.score_dev,major.ps]
+    MajorScore.objects.filter(stu_num=stu_num).delete()
+    MajorScore.objects.majorscore_init(stu_num,stu_class_num)
+    result_list = MajorScore.objects.filter(stu_num=stu_num)
     range1 = {1:'公共必修课程',2:'专业核心课程',3:'专业选修课程'}
     context = {
         'result_list': result_list,
         'range': range1,
         'name': fuck_thisname,
-        'score_request': score_request,
+        'score_request': major,
+        'stu_number':stu_num,
     }
     return render(request, 'detail.html', context)
 
@@ -42,13 +44,23 @@ def submit(request):
     fuck_thisname = gpa_content[index+1]
     stu_class_name = gpa_content[index+5].split(' ')[0]
     major = Major.objects.filter(name=stu_class_name,year=stu_number[0:4])[0]
-    view_create(stu_number,major.number)
     result_list = spilt_by_term(gpa_content, stu_number)
     score_insert(result_list,stu_number,major.number)
     return HttpResponseRedirect(reverse('counter:detail', args=(stu_number,)))
 
+
+
 def result(request,stu_num):
-    pass
+    MajorScore.objects.majorscore_join(stu_num)
+    result_list = MajorScore.objects.filter(stu_num=stu_num,type__lte=2)
+    sele_list = Score.objects.filter(type=3,stu_num=stu_num)
+    context={
+        'name': fuck_thisname,
+        'result_list': result_list,
+        'range': {1:'公共必修课程',2:'专业核心课程'},
+        'sele_list':sele_list,
+    }
+    return render(request, 'result.html', context)
 
 
 #将分割成列表的成绩表以学期为单位分割

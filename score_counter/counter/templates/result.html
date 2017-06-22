@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST!</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <div class="container">
+        <h2>{{name}}同学</h2>
+        {% if result_list %}
+        {% for key, value in range.items %}
+            <div class="list">
+                <h3>{{value}}</h3>
+            <table class="tb">
+                <tr>
+                    <td>课程编号</td><td>课程名</td><td>学分</td><td>你的成绩</td><td>是否通过</td>
+                </tr>
+                {% for item in result_list %}
+                {% if item.type == key %}
+                <tr>
+                    <td>{{item.lesson_num}}</td>
+                    <td width="500px">{{item.lesson_name}}</td>
+                    <td>{{item.point}}</td>
+                    <td>{{item.grade}}</td>
+                    <td>{{item.if_complete}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+            <br>
+            </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if sele_list %}
+        <div class="list">
+                <h3>选修课程</h3>
+            <table class="tb">
+                <tr>
+                    <td>课程编号</td><td>课程名</td><td>学分</td><td>你的成绩</td>
+                </tr>
+                {% for item in sele_list %}
+                <tr>
+                    <td>{{item.number}}</td>
+                    <td width="500px">{{item.name}}</td>
+                    <td>{{item.point}}</td>
+                    <td>{{item.grade}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+       {% endif %}
+    </div>
+</body>
+</html>
