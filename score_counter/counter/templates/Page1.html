@@ -24,10 +24,16 @@ img:hover {width: 150px;height: 150px;padding: 0;}
 <div id="contain" class="search fl" align="center" >
     <form action="{% url 'counter:submit' %}" method="POST">
         {% csrf_token %}
-      <input name="content" class="searchText" type="text" value="请复制你的学分到这里" onfocus="if(this.value=='请复制你的学分到这里')this.value=''" onblur="if(this.value=='')this.value='请复制你的学分到这里'"/>
+      <input name="content" class="searchText" type="text" value="请复制你的成绩表到这里" onfocus="if(this.value=='请复制你的成绩表到这里')this.value=''" onblur="if(this.value=='')this.value='请复制你的学分到这里'"/>
       <input class="searchButton" type="submit" value="搜索" onclick="" target="_blank"/>
     </form>
-<div class="clear">{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}</div>
+
+<div class="clear">
+    {% if error_message %}<p style="color: red;"><strong>{{ error_message }}</strong></p>
+    <br>
+    <p>{{gpa_content}}</p>
+    {% endif %}
+</div>
 
 <div id="footer">
 <hr class="bottomline" />

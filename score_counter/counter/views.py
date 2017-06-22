@@ -32,12 +32,13 @@ def detail(request,stu_num):
 def submit(request):
     global fuck_thisname
     gpa_content = request.POST['content']
-    gpa_content = gpa_content.replace(':','\t')
-    gpa_content = gpa_content.split('\t')
+    gpa_content = gpa_content.replace(' level','level').replace(':','\t').replace('\t',' ')
+    gpa_content = gpa_content.split(' ')
     try:
         index = gpa_content.index('姓名')
     except ValueError:
-        return render(request, 'Page1.html', {'error_message': "噢！同学你是不是复制错了，看看说明吧"})
+        return render(request, 'Page1.html', {'error_message': "把下面这串内容截图给我！",
+                                              'gpa_content': gpa_content})
     stu_number = gpa_content[index-1]
     fuck_thisname = gpa_content[index+1]
     stu_class_name = gpa_content[index+5].split(' ')[0]
@@ -62,18 +63,21 @@ def spilt_by_term(content_list, item):
         b = all_point[i+1]
         result_list.append(content_list[a:b])
     for i in range(len(result_list)):
-        start = result_list[i].index('学分绩点') + 1
+        start = result_list[i].index('备注')
+        for x in range(0,10):
+            if result_list[i][start+x]=='1':
+                start = start + x
+                break
         try:
-            end = result_list[i].index('取得学分')-2
+            end = result_list[i].index('所选学分')
         except ValueError:
-            end = -1
+            end = result_list[i].index('取得学分')-2
         result_list[i] = result_list[i][start:end]
-        result_list[i][0] = '1'
     lesson_single = []
     for term in result_list:
-        for i in range((len(term)+1)//10):
-            a = term[i*10:(i+1)*10]
-            lesson_single.append(a)
+        for i in range((len(term)+1)//11):
+            a = term[i*11:(i+1)*11]
+            lesson_single.append(a[:-1])
     return lesson_single
 #
 def score_insert(list,stu_num,class_num):
