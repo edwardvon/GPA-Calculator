@@ -56,6 +56,7 @@ def result(request,stu_num):
 #将分割成列表的成绩表以学期为单位分割
 def spilt_by_term(content_list, item):
     result_list = []
+    lesson_single = []
     all_point = [i for i, j in enumerate(content_list) if j == item]
     all_point.append(int(-1))
     for i in range(len(all_point)-1):
@@ -63,7 +64,9 @@ def spilt_by_term(content_list, item):
         b = all_point[i+1]
         result_list.append(content_list[a:b])
     for i in range(len(result_list)):
+        point1 = result_list[i].index('序号')
         start = result_list[i].index('备注')
+        num_of_col = start-point1
         for x in range(0,10):
             if result_list[i][start+x]=='1':
                 start = start + x
@@ -72,11 +75,11 @@ def spilt_by_term(content_list, item):
             end = result_list[i].index('所选学分')
         except ValueError:
             end = result_list[i].index('取得学分')-2
-        result_list[i] = result_list[i][start:end]
-    lesson_single = []
-    for term in result_list:
-        for i in range((len(term)+1)//11):
-            a = term[i*11:(i+1)*11]
+        term = result_list[i][start:end]
+        for i in range((len(term)+1)//num_of_col):
+            a = term[i*num_of_col:(i+1)*num_of_col]
+            if num_of_col==12:
+                del a[4]
             lesson_single.append(a[:-1])
     return lesson_single
 #
