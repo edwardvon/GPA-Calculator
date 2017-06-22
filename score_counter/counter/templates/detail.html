@@ -7,12 +7,30 @@
 </head>
 <body>
     <div class="container">
-        <h3>{{name}}同学，请确认这是你的培养方案内容</h3>
+        <h2>{{name}}同学，请确认这是你的培养方案内容</h2>
+
+        {% if score_request %}
+            <div class="list">
+                <h3>毕业学分要求</h3>
+            <table class="tb">
+                <tr>
+                    <td>公共必修学分</td><td>专业核心课</td><td>选修课</td><td>创新实践学分</td>
+                </tr>
+                <tr>
+                    <td>{{score_request.0}}</td>
+                    <td>{{score_request.1}}</td>
+                    <td>{{score_request.2}}</td>
+                    <td>{{score_request.3}}</td>
+                </tr>
+            </table>
+                <p>{{score_request.4}}</p>
+            </div>
+        {% endif %}
         {% if result_list %}
         {% for key, value in range.items %}
             <div class="list">
-                <h2>{{value}}</h2>
-            <table>
+                <h3>{{value}}</h3>
+            <table class="tb">
                 <tr>
                     <td>课程编号</td><td>课程名</td><td>学分</td>
                 </tr>

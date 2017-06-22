@@ -9,22 +9,21 @@ from .models import Major,Detail,Score
 fuck_thisname = ''
 
 def index(request):
-    result_list = []
-    result_list = Major.objects.get_with_value('college','信息工程学院')
-    context = {
-        'result_list': result_list
-    }
-    return render(request, 'Page1.html', context)
+    return render(request, 'Page1.html')
 
 def detail(request,stu_num):
     global fuck_thisname
     # result_list = Score.objects.get_with_value('stu_num', int(stu_num))
     result_list = get_view(stu_num)
+    stu_class_num = result_list[0].class_num
+    major = Major.objects.filter(number=stu_class_num)[0]
+    score_request = [major.score_pub,major.score_core,major.score_sele,major.score_dev,major.ps]
     range1 = {1:'公共必修课程',2:'专业核心课程',3:'专业选修课程'}
     context = {
         'result_list': result_list,
         'range': range1,
         'name': fuck_thisname,
+        'score_request': score_request,
     }
     return render(request, 'detail.html', context)
 
@@ -42,11 +41,10 @@ def submit(request):
     stu_number = gpa_content[index-1]
     fuck_thisname = gpa_content[index+1]
     stu_class_name = gpa_content[index+5].split(' ')[0]
-    major_num = Major.objects.get_with_value('name',stu_class_name,'year',stu_number[0:4])[0].number
-    # lesson_list = Detail.objects.get_with_value('class_num', int(result_list[0].number))
-    view_create(stu_number,major_num)
+    major = Major.objects.filter(name=stu_class_name,year=stu_number[0:4])[0]
+    view_create(stu_number,major.number)
     result_list = spilt_by_term(gpa_content, stu_number)
-    score_insert(result_list,stu_number,major_num)
+    score_insert(result_list,stu_number,major.number)
     return HttpResponseRedirect(reverse('counter:detail', args=(stu_number,)))
 
 def result(request,stu_num):
