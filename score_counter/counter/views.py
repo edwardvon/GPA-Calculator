@@ -16,7 +16,6 @@ def detail(request,stu_num):
     stu_num = int(stu_num)
     stu_class_num = Score.objects.filter(stu_num=stu_num)[0].class_num
     major = Major.objects.filter(number=stu_class_num)[0]
-    MajorScore.objects.filter(stu_num=stu_num).delete()
     MajorScore.objects.majorscore_init(stu_num,stu_class_num)
     result_list = MajorScore.objects.filter(stu_num=stu_num)
     range1 = {1:'公共必修课程',2:'专业核心课程',3:'专业选修课程'}

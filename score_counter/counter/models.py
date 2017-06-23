@@ -82,14 +82,13 @@ class MajorScoreManager(models.Manager):
     def majorscore_init(self,stu_number,class_number):
         request_list = Detail.objects.filter(class_num=class_number)
         for item in request_list:
-            # grades = Score.objects.filter(number__contains=item.number)
-            # comp = 1
-            # if not grades:
-            #     grade = [0]
-            #     comp = 0
-            MajorScore.objects.update_or_create(lesson_num=item.number, lesson_name=item.name, point=item.point,\
+            obj = MajorScore.objects.filter(lesson_num=item.number, lesson_name=item.name, stu_num=stu_number)
+            if len(obj)==0:
+                MajorScore.objects.create(lesson_num=item.number, lesson_name=item.name, point=item.point,\
                                            type=item.type, class_num=class_number, stu_num=stu_number,\
                                            if_complete=0)
+            else:
+                obj.update(grade=0,if_complete=0)
         return 1
 
     def majorscore_join(self,stu_number):
