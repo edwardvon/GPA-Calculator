@@ -65,6 +65,12 @@ class ScoreManager(models.Manager):
             obj.update(type=3)
         return 1
 
+    def get_gpa(self,stu_num):
+        result = Score.objects.filter(stu_num=stu_num)
+        point = sum(i.point for i in result)
+        gpa_total = sum(i.gpa_t for i in result)
+        return gpa_total/point
+
 class MajorScoreManager(models.Manager):
     def get_all(self):
         from django.db import connection

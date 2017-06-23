@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.db import connection,Error
 from .models import Major,Detail,Score,MajorScore
+import json
 
 # Create your views here.
 stu_name = ''
@@ -58,6 +59,7 @@ def result(request,stu_num):
     score_request = Major.objects.get_scorerequest(result_list[0].class_num)
     sele_list = Score.objects.filter(type=3,stu_num=stu_num)
     sele_total = sum(i.get_point for i in sele_list)
+    gpa = Score.objects.get_gpa(stu_num)
     context={
         'name': stu_name,
         'result_list': result_list,
@@ -66,8 +68,24 @@ def result(request,stu_num):
         'score_request': score_request,
         'sele_total': sele_total,
         'less': score_request.score_sele - sele_total,
+        'gpa':("%.2f"%gpa),
     }
     return render(request, 'result.html', context)
+
+def getmajor(request):
+    year = request.POST['year']
+    college = request.POST['college']
+    major = Major.objects.filter(year=year,college_num=college)
+    major_list = {}
+    for i in major:
+        major_list[i.number] = i.name
+    return HttpResponse(json.dumps(major_list), content_type="application/json")
+
+def major_rebuild(request, stu_num):
+    major_num = request.POST['']
+    Score.objects.filter(stu_num=stu_num).update(class_num=major_num)
+    MajorScore.objects.filter(stu_num=stu_num).delete()
+    return HttpResponseRedirect(reverse('counter:detail', args=(stu_num,)))
 
 
 #将分割成列表的成绩表以学期为单位分割
