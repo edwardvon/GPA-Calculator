@@ -14,32 +14,35 @@ $(document).ready(function(){
     $(".btn2").click(function(){
     $("form").show();
     });
-
-    $("#collage").change(function(){
-    var year1=$("#year").val();  
-    var collage1=$("#collage").val();  
-    $.post("/大作业/Test.json",
+});
+</script>
+<script src="/jquery/jquery-1.11.1.min.js">
+</script>
+<script>
+    $("#select").change(function(year,collage){
+    var year=$("#select.year").val();  
+    var collage=$("#select.collage").val();  
+    $.post("/Test.json",
     {
-      year:year1,
-      collage:collage1
+      year:year,
+      collage:collage
     },
     function(data){
     var s = data; 
     var major=s.split(",");
     for(var i;i<10;i++){
-    $("#major").append($("<option value=5></option>").text(major[i]));
+    $("#select.major").append("<option value='i'>major[i]</option>");
     }
-    });
-    });
+    }
+  });
 });
 </script>
-
 </head>
 <body>
 
-<form id="display">
+<form id="display" >
       <label>请选择你的年级：
-      <select id="year" name="year" >
+      <select id="year" name="year" onchange="nianji(this.value)" >
       <option value="2016">2016</option>
       <option value="2015">2015</option>
       <option value="2014">2014</option>
@@ -47,8 +50,7 @@ $(document).ready(function(){
       </select>
       </label>
       <label>请选择你的学院：
-      <select id="collage" name="collage" >
-      <option value="0" name="人文学院">请选择</option>
+      <select id="collage" name="collage" onchange="xueyuan(this.value)">
       <option value="1" name="人文学院">人文学院</option>
       <option value="2" name="经济学院">经济学院</option>
       <option value="3" name="法学院">法学院</option>
@@ -67,11 +69,13 @@ $(document).ready(function(){
       </label>
       <label>请选择你的专业名：
       <select id="major" name="major">
-      <option value="0">请选择</option>
+      <option value="0"></option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
       </select>
       </label><br></form>
       <input class="" id="btn1" type="submit" value="是的没错！" onchange=""/>
       <input class="btn2" type="button" value="需要修改！"/>
 </body>
 </html>
-
