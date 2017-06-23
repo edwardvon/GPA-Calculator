@@ -18,7 +18,7 @@ $(document).ready(function(){
     $("#collage").change(function(){
     var year1=$("#year").val();  
     var collage1=$("#collage").val();  
-    $.post("/大作业/Test.json",
+    $.post("/getmajor/.json",
     {
       year:year1,
       collage:collage1
@@ -70,7 +70,7 @@ $(document).ready(function(){
       <option value="0">请选择</option>
       </select>
       </label><br></form>
-      <input class="" id="btn1" type="submit" value="是的没错！" onchange=""/>
+      <input class="" id="btn1" type="submit" value="是的没错！" url="rebuild/"/>
       <input class="btn2" type="button" value="需要修改！"/>
 </body>
 </html>
