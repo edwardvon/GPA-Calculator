@@ -55,15 +55,21 @@ class ScoreManager(models.Manager):
                 result_list.append(p)
         return result_list
 
-    def score_init(self,data):
-        row = data
-        # try:
-        Score.objects.update_or_create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
+    def score_init(self,row):
+        obj = Score.objects.filter(stu_num=row[9],term=row[0],number=row[1])
+        if len(obj)==0:
+            Score.objects.create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
                        point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
                        gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
-        # except:
-        #     print("err")
+        else:
+            obj.update(type=3)
         return 1
+
+    def get_gpa(self,stu_num):
+        result = Score.objects.filter(stu_num=stu_num)
+        point = sum(i.point for i in result)
+        gpa_total = sum(i.gpa_t for i in result)
+        return gpa_total/point
 
 class MajorScoreManager(models.Manager):
     def get_all(self):
@@ -82,14 +88,13 @@ class MajorScoreManager(models.Manager):
     def majorscore_init(self,stu_number,class_number):
         request_list = Detail.objects.filter(class_num=class_number)
         for item in request_list:
-            # grades = Score.objects.filter(number__contains=item.number)
-            # comp = 1
-            # if not grades:
-            #     grade = [0]
-            #     comp = 0
-            MajorScore.objects.update_or_create(lesson_num=item.number, lesson_name=item.name, point=item.point,\
+            obj = MajorScore.objects.filter(lesson_num=item.number, lesson_name=item.name, stu_num=stu_number)
+            if len(obj)==0:
+                MajorScore.objects.create(lesson_num=item.number, lesson_name=item.name, point=item.point,\
                                            type=item.type, class_num=class_number, stu_num=stu_number,\
                                            if_complete=0)
+            else:
+                obj.update(grade=0,if_complete=0)
         return 1
 
     def majorscore_join(self,stu_number):
