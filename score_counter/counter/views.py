@@ -77,12 +77,12 @@ def getmajor(request):
     college = request.POST['college']
     major = Major.objects.filter(year=year,college_num=college)
     major_list = {}
-    for i in major:
-        major_list[i.number] = i.name
+    for i in range(len(major)):
+        major_list[i] = {"id":major[i].number,"name":major[i].name}
     return HttpResponse(json.dumps(major_list), content_type="application/json")
 
 def major_rebuild(request, stu_num):
-    major_num = request.POST['']
+    major_num = request.POST['major']
     Score.objects.filter(stu_num=stu_num).update(class_num=major_num)
     MajorScore.objects.filter(stu_num=stu_num).delete()
     return HttpResponseRedirect(reverse('counter:detail', args=(stu_num,)))
