@@ -55,14 +55,14 @@ class ScoreManager(models.Manager):
                 result_list.append(p)
         return result_list
 
-    def score_init(self,data):
-        row = data
-        # try:
-        Score.objects.update_or_create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
+    def score_init(self,row):
+        obj = Score.objects.filter(stu_num=row[9],term=row[0],number=row[1])
+        if len(obj)==0:
+            Score.objects.create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
                        point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
                        gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
-        # except:
-        #     print("err")
+        else:
+            obj.update(type=3)
         return 1
 
 class MajorScoreManager(models.Manager):

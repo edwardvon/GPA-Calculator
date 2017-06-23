@@ -1,8 +1,29 @@
-﻿你查询2014170002 的成绩
+﻿
+def view_create(stu_num, class_num):
+    with connection.cursor() as cursor:
+        cursor.execute("DROP VIEW IF EXISTS %s"%('view'+str(stu_num)))
+        try:
+            cursor.execute("CREATE VIEW %s AS SELECT * FROM counter_detail WHERE CLASS_NUM=%s;"%('view'+str(stu_num),str(class_num)))
+        except Error as err:
+            print(err)
+        return 1
+
+def get_view(stu_num):
+    with connection.cursor() as cursor:
+        try:
+            cursor.execute("SELECT * FROM %s"%('view'+str(stu_num)))
+        except Error as err:
+            print(err)
+        result_list = []
+        for row in cursor.fetchall():
+            p = Detail.objects.model(id=row[0], number=row[1], name=row[2], point=row[3], type=row[4], class_num=row[5])
+            result_list.append(p)
+    return result_list
+你查询2014170002 的成绩
 
 2014年至2015年度第1学期
 
-学号	2014170000	姓名	冯嘉文	性别	男	主修专业	光电信息科学与工程（光电成像与显示）
+学号	2014170000	姓1名	冯嘉文	性别	男	主修专业	光电信息科学与工程（光电成像与显示）
 序号	学期号	课程号	课程名称	课程类别	学分	取分	成绩	绩点	学分绩点
 备注
 
