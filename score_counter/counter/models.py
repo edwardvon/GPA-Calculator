@@ -16,6 +16,16 @@ class MajorManager(models.Manager):
                 result_list.append(p)
         return result_list
 
+    def get_scorerequest(self,class_num):
+        from django.db import connection
+        with connection.cursor() as cursor:
+            cursor.execute('''
+                        SELECT * FROM counter_major WHERE number=%d
+                        '''%class_num)
+            for row in cursor.fetchall():
+                p = self.model(score_pub=row[5], score_core=row[6],score_sele=row[7], score_dev=row[8], ps=row[9])
+        return p
+
 class DetailManager(models.Manager):
     def get_all(self):
         from django.db import connection
@@ -85,9 +95,11 @@ class MajorScoreManager(models.Manager):
     def majorscore_join(self,stu_number):
         request_list = MajorScore.objects.filter(stu_num=stu_number,type__lte=2)
         for item in request_list:
+            if item.lesson_num=='53000100':
+                continue
             a = []
             com = 1
-            grades = Score.objects.filter(number__contains=item.lesson_num[:-1],stu_num=stu_number)
+            grades = Score.objects.filter(number__contains=item.lesson_num[:6],stu_num=stu_number)
             if not len(grades)==0:
                 for i in grades:
                     a.append(i.grade)
@@ -97,6 +109,16 @@ class MajorScoreManager(models.Manager):
             if min(a)=='F' or min(a)==0:
                 com = 0
             MajorScore.objects.filter(id=item.id).update(grade=min(a), if_complete=com)
+        pe_list = MajorScore.objects.filter(lesson_num='53000100',stu_num=stu_number)
+        pe_grades = Score.objects.filter(number__startswith='530001',stu_num=stu_number)
+        for i in range(len(pe_grades)):
+            com = 1
+            id = pe_list[i].id
+            gra = pe_grades[i].grade
+            if gra=='F' or gra==0:
+                com = 0
+            Score.objects.filter(id=pe_grades[i].id).update(type=1)
+            MajorScore.objects.filter(id=id).update(grade=gra,if_complete=com)
         return 1
 
 class Major(models.Model):

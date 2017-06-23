@@ -7,11 +7,11 @@
 </head>
 <body>
     <div class="container">
-        <h2>{{name}}同学</h2>
+        <h1>{{name}}同学</h1>
         {% if result_list %}
         {% for key, value in range.items %}
             <div class="list">
-                <h3>{{value}}</h3>
+                <h2>{{value}}</h2>
             <table class="tb">
                 <tr>
                     <td>课程编号</td><td>课程名</td><td>学分</td><td>你的成绩</td><td>是否通过</td>
@@ -33,9 +33,12 @@
         {% endfor %}
         {% endif %}
 
-        {% if sele_list %}
         <div class="list">
-                <h3>选修课程</h3>
+            <h2>选修课程</h2>
+            <p>已修<strong>{{sele_total}}</strong>分，毕业要求选修课<strong>{{score_request.score_sele}}</strong>分,
+                缺<strong>{{less}}</strong>分</p>
+            <p>{{score_request.ps}}</p>
+            {% if sele_list %}
             <table class="tb">
                 <tr>
                     <td>课程编号</td><td>课程名</td><td>学分</td><td>你的成绩</td>
@@ -49,6 +52,7 @@
                 </tr>
                 {% endfor %}
             </table>
+            <br>
        {% endif %}
     </div>
 </body>

@@ -53,12 +53,17 @@ def submit(request):
 def result(request,stu_num):
     MajorScore.objects.majorscore_join(stu_num)
     result_list = MajorScore.objects.filter(stu_num=stu_num,type__lte=2)
+    score_request = Major.objects.get_scorerequest(result_list[0].class_num)
     sele_list = Score.objects.filter(type=3,stu_num=stu_num)
+    sele_total = sum(i.get_point for i in sele_list)
     context={
         'name': fuck_thisname,
         'result_list': result_list,
         'range': {1:'公共必修课程',2:'专业核心课程'},
         'sele_list':sele_list,
+        'score_request': score_request,
+        'sele_total': sele_total,
+        'less': score_request.score_sele - sele_total,
     }
     return render(request, 'result.html', context)
 
@@ -94,6 +99,7 @@ def spilt_by_term(content_list, item):
     return lesson_single
 #
 def score_insert(list,stu_num,class_num):
+    Score.objects.filter(stu_num=stu_num).delete()
     for item in list:
         a = item[1:]
         a.append(str(stu_num))
