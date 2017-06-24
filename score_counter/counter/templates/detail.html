@@ -133,6 +133,7 @@
                   },
 
                   success: function (data) {
+                      $("#major").empty();
                       var result = eval(data);
                       $.each(result,function (key,content) {
                           var opt = $("<option></option>").text(content.name).val(content.id);
