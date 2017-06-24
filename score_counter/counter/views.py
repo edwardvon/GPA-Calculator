@@ -10,7 +10,7 @@ import json
 stu_name = ''
 
 def index(request):
-    return render(request, 'Page1.html')
+    return render(request, 'index.html')
 
 def submit(request):
     global stu_name
@@ -24,7 +24,7 @@ def submit(request):
         index = gpa_content.index('绩点')
         index = gpa_content.index('姓名')
     except ValueError:
-        return render(request, 'Page1.html', {'error_message': "同学！你是不是复制错了？看看说明吧",
+        return render(request, 'index.html', {'error_message': "同学！你是不是复制错了？看看说明吧",
                                               'gpa_content':gpa_content,})
     stu_number = gpa_content[index-1]
     stu_name = gpa_content[index+1]

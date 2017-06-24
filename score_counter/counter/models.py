@@ -62,7 +62,7 @@ class ScoreManager(models.Manager):
                        point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
                        gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
         else:
-            obj.update(type=3)
+            obj.update(type=3,class_num=row[10])
         return 1
 
     def get_gpa(self,stu_num):

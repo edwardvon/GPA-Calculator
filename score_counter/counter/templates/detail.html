@@ -1,104 +1,19 @@
-<!DOCTYPE>
-<head>
-    <meta charset="UTF-8">
-    <title>TEST!</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
-    <style type="text/css">
-        p {display: inline}
-        form {display: none}
-    </style>
-    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $("#btn2").click(function () {
-            $("form").show();
-            $("#btn1").hide();
-            $("#btn2").hide();
-        });
+{% extends "bootstrap.html" %}}
 
-        $("#collage").change(function () {
-            var year1 = $("#year").val();
-            var collage1 = $("#collage").val();
-            $.ajaxSetup({
-                data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
-            });
-            $.ajax({
-                type: 'POST',
-                url: "{% url 'counter:getmajor' %}",
-                data: {
-                    "year": year1,
-                    "college": collage1
-                },
+{% block title %}你的培养方案{% endblock %}
 
-                success: function (data) {
-                    var result = eval(data);
-                    $.each(result,function (key,content) {
-                        var opt = $("<option></option>").text(content.name).val(content.id);
-                        $("#major").append(opt);
-                    });
-                }
-            });
-        });
-    });
+{% block content %}
+<div class="confirm" style="margin: 50px auto;">
+      <h3>{{name}}同学，请确认这是你的培养方案内容</h3>
+      <a id="btn1" href="result/" class="btn btn-primary" role="button">是的没错！</a>
+      <button id="btn2" class="btn btn-warning">需要修改！</button>
+    </div>
 
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h2>{{name}}同学，请确认这是你的培养方案内容</h2>
-        <form id="display" action="rebuild/" method="POST">
-            {% csrf_token %}
-      <label>请选择你的年级：
-      <select id="year" name="year" >
-      <option value="2016">2016</option>
-      <option value="2015">2015</option>
-      <option value="2014">2014</option>
-      <option value="2013">2013</option>
-      </select>
-      </label>
-      <label>请选择你的学院：
-      <select id="collage" name="collage" url="rebuild/">
-      <option value="0" name="option0">请选择</option>
-      <option value="1" name="option1">人文学院</option>
-      <option value="2" name="option2">经济学院</option>
-      <option value="3" name="option3">法学院</option>
-      <option value="4" name="option4">管理学院</option>
-      <option value="5" name="option5">艺术设计学院</option>
-      <option value="6" name="option6">高尔夫学院</option>
-      <option value="7" name="option7">外国语学院</option>
-      <option value="8" name="option8">传播学院</option>
-      <option value="9" name="option9">土木工程学院</option>
-      <option value="10" name="option10">建筑与城市规划学院</option>
-      <option value="11" name="option11">机电与控制工程学院</option>
-      <option value="12" name="option12">师范学院</option>
-      <option value="13" name="option13">信息工程学院</option>
-      <option value="14" name="option14">化学与环境学院</option>
-      <option value="15" name="option15">计算机与软件学院</option>
-      <option value="16" name="option16">电子科学与技术学院</option>
-      <option value="17" name="option17">光电工程学院</option>
-      <option value="18" name="option18">物理与能源学院</option>
-      <option value="19" name="option19">数学与统计学院</option>
-      <option value="20" name="option20">材料学院</option>
-      <option value="22" name="option22">医学院</option>
-      <option value="24" name="option24">心理与社会学院</option>
-      <option value="30" name="option30">生命与海洋科学学院</option>
-      </select>
-      </label>
-      <label>请选择你的专业名：
-      <select id="major" name="major">
-      <option value="0">请选择</option>
-      </select>
-      </label>
-         <input class="submit" type="submit" value="确认"  />
-        </form>
-      <button id="btn1"><a href="result/" style="text-decoration: none;">是的没错！</a></button>
-      <button id="btn2">需要修改！</button>
         {% if score_request %}
-            <div class="list">
-                <h2>{{score_request.name}}</h2>
-                <h3>毕业学分要求</h3>
-            <table class="tb">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>{{score_request.name}}</h3>
+                <h4  style="margin-top: 40px">毕业学分要求</h4>
+            <table class="table table-striped table-condensed">
                 <tr>
                     <td>公共必修学分</td><td>专业核心课</td><td>选修课</td><td>创新实践学分</td>
                 </tr>
@@ -108,23 +23,26 @@
                     <td>{{score_request.score_sele}}</td>
                     <td>{{score_request.score_dev}}</td>
                 </tr>
+                <tr>
+                  <td colspan="4">{{score_request.ps}}</td>
+                </tr>
             </table>
-                <p>{{score_request.ps}}</p>
             </div>
         {% endif %}
         {% if result_list %}
         {% for key, value in range.items %}
-            <div class="list">
+            <div class="col-md-10 col-md-offset-1 ">
                 <h3>{{value}}</h3>
-            <table class="tb">
+            <table class="table table-striped">
                 <tr>
-                    <td>课程编号</td><td>课程名</td><td>学分</td>
+                    <td>#</td><td>课程编号</td><td>课程名</td><td>学分</td>
                 </tr>
                 {% for item in result_list %}
                 {% if item.type == key %}
                 <tr>
+                    <td>{{ forloop.counter }}</td>
                     <td>{{item.lesson_num}}</td>
-                    <td width="500px">{{item.lesson_name}}</td>
+                    <td style="width: 450px;">{{item.lesson_name}}</td>
                     <td>{{item.point}}</td>
                 </tr>
                 {% endif %}
@@ -134,6 +52,92 @@
             </div>
         {% endfor %}
         {% endif %}
+
     </div>
-</body>
-</html>
+    <div id="major-re" style="display: none;">
+        <div id="major-re-center">
+          <form action="rebuild/" method="POST">
+            {% csrf_token %}
+              <label>请选择你的年级：
+              <select id="year" class="form-control" name="year" >
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              </select>
+              </label>
+              <label>请选择你的学院：
+              <select id="collage" class="form-control" name="collage" url="rebuild/">
+              <option value="0" name="option0">请选择</option>
+              <option value="1" name="option1">人文学院</option>
+              <option value="2" name="option2">经济学院</option>
+              <option value="3" name="option3">法学院</option>
+              <option value="4" name="option4">管理学院</option>
+              <option value="5" name="option5">艺术设计学院</option>
+              <option value="6" name="option6">高尔夫学院</option>
+              <option value="7" name="option7">外国语学院</option>
+              <option value="8" name="option8">传播学院</option>
+              <option value="9" name="option9">土木工程学院</option>
+              <option value="10" name="option10">建筑与城市规划学院</option>
+              <option value="11" name="option11">机电与控制工程学院</option>
+              <option value="12" name="option12">师范学院</option>
+              <option value="13" name="option13">信息工程学院</option>
+              <option value="14" name="option14">化学与环境学院</option>
+              <option value="15" name="option15">计算机与软件学院</option>
+              <option value="16" name="option16">电子科学与技术学院</option>
+              <option value="17" name="option17">光电工程学院</option>
+              <option value="18" name="option18">物理与能源学院</option>
+              <option value="19" name="option19">数学与统计学院</option>
+              <option value="20" name="option20">材料学院</option>
+              <option value="22" name="option22">医学院</option>
+              <option value="24" name="option24">心理与社会学院</option>
+              <option value="30" name="option30">生命与海洋科学学院</option>
+              </select>
+              </label>
+              <label>请选择你的专业名：
+              <select id="major" class="form-control" name="major">
+              <option value="0">请选择</option>
+              </select>
+              </label>
+              <button class="btn btn-primary" type="submit" style="margin-top: -5px;">确认</button>
+              <button id="cancel" class="btn btn-warning" type="button" style="margin-top: -5px;">取消</button>
+          </form>
+
+        </div>
+      </div>
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $("#btn2").click(function () {
+              $("#major-re").fadeIn(500);
+          });
+
+          $("#cancel").click(function () {
+              $("#major-re").fadeOut(500);
+          });
+
+          $("#collage").change(function () {
+              var year1 = $("#year").val();
+              var collage1 = $("#collage").val();
+              $.ajaxSetup({
+                  data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+              });
+              $.ajax({
+                  type: 'POST',
+                  url: "{% url 'counter:getmajor' %}",
+                  data: {
+                      "year": year1,
+                      "college": collage1
+                  },
+
+                  success: function (data) {
+                      var result = eval(data);
+                      $.each(result,function (key,content) {
+                          var opt = $("<option></option>").text(content.name).val(content.id);
+                          $("#major").append(opt);
+                      });
+                  }
+              });
+          });
+      });
+    </script>
+{% endblock %}}

@@ -1,29 +1,33 @@
-<!DOCTYPE>
-<head>
-    <meta charset="UTF-8">
-    <title>TEST!</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
-</head>
-<body>
-    <div class="container">
-        <h1>{{name}}同学</h1>
-        {% if gpa %}
-        <p>你的GPA是<strong>{{gpa}}</strong>哦！</p>
+{% extends "bootstrap.html" %}}
+
+{% block title %}计算结果！{% endblock %}
+
+{% block content %}
+    {% if name|length > 1 %}
+    <h2>{{name}}同学</h2>
+    {% else %}
+    <h2>{{result_list.1.stu_num}}同学</h2>
+    {% endif %}
+    {% if gpa %}
+        <h4>你的GPA是<strong>{{gpa}}</strong>哦！</h4>
         {% endif %}
         {% if result_list %}
         {% for key, value in range.items %}
-            <div class="list">
-                <h2>{{value}}</h2>
-            <table class="tb">
-                <tr>
+            <div class="col-md-10 col-md-offset-1">
+                <h3>{{value}}</h3>
+            <table class="table table-condensed">
+                <tr class="bg-primary" style="background-color: #555555;">
                     <td>课程编号</td><td>课程名</td><td>学分</td><td>你的成绩</td><td>是否通过</td>
                 </tr>
                 {% for item in result_list %}
                 {% if item.type == key %}
-                <tr>
+                {% if item.if_complete %}
+                <tr class="bg-success">
+                {% else %}
+                <tr class="bg-danger">
+                {% endif %}
                     <td>{{item.lesson_num}}</td>
-                    <td width="500px">{{item.lesson_name}}</td>
+                    <td width="450px">{{item.lesson_name}}</td>
                     <td>{{item.point}}</td>
                     <td>{{item.grade}}</td>
                     <td>{{item.if_complete}}</td>
@@ -36,20 +40,20 @@
         {% endfor %}
         {% endif %}
 
-        <div class="list">
-            <h2>选修课程</h2>
+        <div class="col-md-10 col-md-offset-1">
+            <h3>选修课程</h3>
             <p>已修<strong>{{sele_total}}</strong>分，毕业要求选修课<strong>{{score_request.score_sele}}</strong>分,
                 缺<strong>{{less}}</strong>分</p>
             <p>{{score_request.ps}}</p>
             {% if sele_list %}
-            <table class="tb">
-                <tr>
+            <table class="table table-striped table-condensed">
+                <tr class="bg-primary"  style="background-color: #555555;">
                     <td>课程编号</td><td>课程名</td><td>学分</td><td>你的成绩</td>
                 </tr>
                 {% for item in sele_list %}
                 <tr>
                     <td>{{item.number}}</td>
-                    <td width="500px">{{item.name}}</td>
+                    <td width="450px">{{item.name}}</td>
                     <td>{{item.point}}</td>
                     <td>{{item.grade}}</td>
                 </tr>
@@ -57,6 +61,4 @@
             </table>
             <br>
        {% endif %}
-    </div>
-</body>
-</html>
+{% endblock %}}

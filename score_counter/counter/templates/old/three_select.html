@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+p {display: inline}
+form {display: none}
+</style>
+
+<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".btn2").click(function(){
+    $("form").show();
+    });
+
+    $("#collage").change(function(){
+    var year1=$("#year").val();  
+    var collage1=$("#collage").val();  
+    $.post("/getmajor/.json",
+    {
+      year:year1,
+      collage:collage1
+    },
+    function(data){
+    var s = data; 
+    var major=s.split(",");
+    for(var i;i<10;i++){
+    $("#major").append($("<option value=5></option>").text(major[i]));
+    }
+    });
+    });
+});
+</script>
+
+</head>
+<body>
+
+<form id="display">
+      <label>请选择你的年级：
+      <select id="year" name="year" >
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+      <option value="2014">2014</option>
+      <option value="2013">2013</option>
+      </select>
+      </label>
+      <label>请选择你的学院：
+      <select id="collage" name="collage" url="rebuild/">
+      <option value="0" name="option0">请选择</option>
+      <option value="1" name="option1">人文学院</option>
+      <option value="2" name="option2">经济学院</option>
+      <option value="3" name="option3">法学院</option>
+      <option value="4" name="option4">管理学院</option>
+      <option value="5" name="option5">艺术设计学院</option>
+      <option value="6" name="option6">高尔夫学院</option>
+      <option value="7" name="option7">外国语学院</option>
+      <option value="8" name="option8">传播学院</option>
+      <option value="9" name="option9">土木工程学院</option>
+      <option value="10" name="option10">建筑与城市规划学院</option>
+      <option value="11" name="option11">机电与控制工程学院</option>
+      <option value="12" name="option12">师范学院</option>
+      <option value="13" name="option13">信息工程学院</option>
+      <option value="14" name="option14">化学与环境学院</option>
+      <option value="15" name="option15">计算机与软件学院</option>
+      <option value="16" name="option16">电子科学与技术学院</option>
+      <option value="17" name="option17">光电工程学院</option>
+      <option value="18" name="option18">物理与能源学院</option>
+      <option value="19" name="option19">数学与统计学院</option>
+      <option value="20" name="option20">材料学院</option>
+      <option value="22" name="option22">医学院</option>
+      <option value="24" name="option24">心理与社会学院</option>
+      <option value="30" name="option30">生命与海洋科学学院</option>
+
+      </select>
+      </label>
+      <label>请选择你的专业名：
+      <select id="major" name="major">
+      <option value="0">请选择</option>
+      </select>
+      </label><br></form>
+      <input class="btn1" type="botton" value="是的没错！" url="result/"/>
+      <input class="btn2" type="button" value="需要修改！"/>
+</body>
+</html>
+

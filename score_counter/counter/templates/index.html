@@ -1,46 +1,65 @@
-<!DOCTYPE>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>TEST!</title>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
-</head>
-<body>
-{% if result_list %}
-    <div class="list">
-    <ul>
-        {% for item in result_list %}
-            <li><a href="{% url 'counter:detail' item.number %}">{{ item.year }} {{ item.college }} {{item.name}}</a></li>
-        {% endfor %}
-    </ul>
-    </div>
-{% endif %}
-<p>{{ name }}</p>
-<p>{{a}}</p>
-<br>
-{% if result %}
-{% for i in result %}
-<p>{{ i }}</p>
-<br>
-{% endfor %}
-{% endif %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>学分计算器！</title>
 
-{% if lesson_list %}
-<h3>{{ name }}同学</h3>
-{% for key, value in range.items %}
-    <div class="list">
-        <h2>{{value}}</h2>
-    <ul>
-        {% for item in lesson_list %}
-        {% if item.type == key %}
-            <li><p>{{ item }}</p></li>
+    <!-- Bootstrap -->
+    {% load static %}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/loading.css" %}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+        <div class="main_title">
+            <h1>这是一个不负责任的学分计算器！</h1>
+            <!--<p class="sub_title">Here is the sub tilte</p>-->
+            <h4 class="sub_title">这里应该是一个副标题</h4>
+        </div>
+        <form class="form col-md-6 col-md-offset-3" action="{% url 'counter:submit' %}" method="POST">
+            {% csrf_token %}
+            <div class="col-lg-6 index-input">
+                <div class="input-group" style="display: inline-table;">
+                  <input type="text" name="content" class="form-control input-form" placeholder="请复制你的成绩表到这里">
+                  <span class="input-group-btn">
+                    <button id="next" class="btn btn-primary website-submit" type="submit">Go!</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+        </form>
+
+        {% if error_message %}
+        <div class="message col-md-6 col-md-offset-3">
+            <h4 class="text-info "><strong>{{ error_message }}</strong></h4>
+        </div>
         {% endif %}
-        {% endfor %}
-    </ul>
-    <br>
     </div>
-{% endfor %}
-{% endif %}
-</body>
+    <div id="loading" style="display: none;">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+            </div>
+        </div>
+    </div>
+  </body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static "js/loading.js" %}"></script>
+
+
 </html>
