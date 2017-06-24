@@ -25,11 +25,18 @@ body{
     .sub_title{
         margin-top: 30px;
     }
+    .index-input{
+        width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
+    }
 }
 
 @media (min-width: 1200px) {
     .index-input{
         width: 100%;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 }
 .container{
@@ -48,12 +55,13 @@ body{
 .input-form{
     height: 40px;
     font-size: 14px;
+    margin-bottom: 10px;
     /*box-shadow: 0px 0px 15px 0px rgba(41, 43, 51, 0.25);*/
 }
 
 .website-submit{
-    height: 40px;
-    padding: 10px 20px;
+    padding: 8px 24px;
+    margin-top: 10px;
     background-color: #0592d2;
     border-color: #047cb3;
 }
