@@ -6,11 +6,13 @@
     {% if name|length > 1 %}
     <h2>{{name}}同学</h2>
     {% else %}
-    <h2>{{result_list.1.stu_num}}同学</h2>
+    <h2>{{result_list.1.stu_num}}同学
     {% endif %}
-    {% if gpa %}
-        <h4>你的GPA是<strong>{{gpa}}</strong>哦！</h4>
+        {% if gpa %}
+        <small>你的GPA是<strong>{{gpa}}</strong>哦！</small>
         {% endif %}
+    </h2>
+    <p>(此结果仅用于参考,具体以教务处公开内容为准)</p>
         {% if result_list %}
         {% for key, value in range.items %}
             <div class="col-md-10 col-md-offset-1">
@@ -42,8 +44,8 @@
 
         <div class="col-md-10 col-md-offset-1">
             <h3>选修课程</h3>
-            <p>已修<strong>{{sele_total}}</strong>分，毕业要求选修课<strong>{{score_request.score_sele}}</strong>分,
-                缺<strong>{{less}}</strong>分</p>
+            <h4>已修<strong>{{sele_total}}</strong>分，毕业要求选修课<strong>{{score_request.score_sele}}</strong>分,
+                缺<strong>{{less}}</strong>分</h4>
             <p>{{score_request.ps}}</p>
             {% if sele_list %}
             <table class="table table-striped table-condensed">
@@ -58,6 +60,7 @@
                     <td>{{item.grade}}</td>
                 </tr>
                 {% endfor %}
+                <p>（p.s. 目前部分必修MOOC课程，程序会判定为选修）</p>
             </table>
             <br>
        {% endif %}
