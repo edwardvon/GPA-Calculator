@@ -16,7 +16,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6090776">
+    <splitter split-orientation="horizontal" split-proportion="0.39751098">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
@@ -38,7 +38,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="bootstrap.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="bootstrap.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/bootstrap.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="544">
@@ -75,7 +75,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="result.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="result.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/result.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="238">
@@ -110,7 +110,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/score_counter/counter/static/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="17">
@@ -130,11 +130,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
-                  <caret line="33" column="49" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="49" />
+                <state relative-caret-position="119">
+                  <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#h4#0;n#div#1;n#!!top" expanded="true" />
@@ -148,7 +148,6 @@
                     <element signature="n#select#0;n#label#2;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
                     <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#button#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-                    <element signature="n#script#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -203,11 +202,11 @@
         <option value="$PROJECT_DIR$/score_counter/counter/models.py" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/detail_boot.html" />
         <option value="$PROJECT_DIR$/score_counter/counter/views.py" />
-        <option value="$PROJECT_DIR$/score_counter/counter/templates/detail.html" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/bootstrap.html" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/index.html" />
         <option value="$PROJECT_DIR$/score_counter/counter/static/css/style.css" />
         <option value="$PROJECT_DIR$/score_counter/counter/templates/result.html" />
+        <option value="$PROJECT_DIR$/score_counter/counter/templates/detail.html" />
       </list>
     </option>
   </component>
@@ -1094,16 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/bootstrap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/old/detail_old.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1152,28 +1141,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="49" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#label#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#select#0;n#label#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#label#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#select#0;n#label#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#label#2;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#select#0;n#label#2;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -1200,6 +1167,37 @@
           <folding>
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/score_counter/counter/templates/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#label#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#select#0;n#label#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#label#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#select#0;n#label#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#label#2;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#select#0;n#label#2;n#form#0;n#div#0;n#div#3;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#form#0;n#div#0;n#div#3;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -5,7 +5,7 @@
 {% block content %}
 <div class="confirm" style="margin: 50px auto;">
       <h3>{{name}}同学，请确认这是你的培养方案内容</h3>
-      <a id="btn1" href="result/" class="btn btn-primary" role="button">是的没错！</a>
+      <a id="next" href="result/" class="btn btn-primary" role="button">是的没错！</a>
       <button id="btn2" class="btn btn-warning">需要修改！</button>
     </div>
 
@@ -99,7 +99,7 @@
               <option value="0">请选择</option>
               </select>
               </label>
-              <button class="btn btn-primary" type="submit" style="margin-top: -5px;">确认</button>
+              <button id="btn1" class="btn btn-primary" type="submit" style="margin-top: -5px;">确认</button>
               <button id="cancel" class="btn btn-warning" type="button" style="margin-top: -5px;">取消</button>
           </form>
 
@@ -107,6 +107,9 @@
       </div>
     <script type="text/javascript">
       $(document).ready(function() {
+          $("#btn1").click(function () {
+              $("#loading").fadeIn(500);
+          });
           $("#btn2").click(function () {
               $("#major-re").fadeIn(500);
           });
