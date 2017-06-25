@@ -98,6 +98,9 @@ body{
     color: #333;
     font-size: 10px;
 }
+.guide p{
+    margin: 0 0 0;
+}
 
 .just_warpper{
     height: 100%;
