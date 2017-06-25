@@ -33,7 +33,11 @@ def submit(request):
     stu_class_name = gpa_content[index+5]
     major = Major.objects.filter(name=stu_class_name,year=stu_number[0:4])[0]
     #成绩单内容以学期分割
-    result_list = spilt_by_term(gpa_content, stu_number)
+    try:
+        result_list = spilt_by_term(gpa_content, stu_number)
+    except ValueError:
+        return render(request, 'index.html', {'error_message': "同学！你是不是复制错了？看看说明吧",
+                                              'gpa_content': gpa_content, })
     #课程条目插入数据库
     score_insert(result_list,stu_number,major.number,stu_name)
     return HttpResponseRedirect(reverse('counter:detail', args=(stu_number,)))
