@@ -55,14 +55,14 @@ class ScoreManager(models.Manager):
                 result_list.append(p)
         return result_list
 
-    def score_init(self,row):
+    def score_init(self,row,stu_name):
         obj = Score.objects.filter(stu_num=row[9],term=row[0],number=row[1])
         if len(obj)==0:
             Score.objects.create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
                        point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
-                       gpa_t=row[8], stu_num=row[9], class_num=row[10],type=3)
+                       gpa_t=row[8], stu_num=row[9], class_num=row[10],stu_name=stu_name,type=3)
         else:
-            obj.update(type=3,class_num=row[10])
+            obj.update(type=3,class_num=row[10],stu_name=stu_name)
         return 1
 
     def get_gpa(self,stu_num):
@@ -187,6 +187,7 @@ class Score(models.Model):
     type = models.IntegerField()
     stu_num = models.IntegerField()
     class_num = models.IntegerField()
+    stu_name = models.CharField(max_length=10,default=' ')
     objects = ScoreManager()
 
     def export(self):

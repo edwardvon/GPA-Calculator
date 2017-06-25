@@ -6,12 +6,12 @@
     {% if name|length > 1 %}
     <h2>{{name}}同学</h2>
     {% else %}
-    <h2>{{result_list.1.stu_num}}同学
+    <h2>{{result_list.1.stu_num}}同学</h2>
     {% endif %}
         {% if gpa %}
-        <small>你的GPA是<strong>{{gpa}}</strong>哦！</small>
+        <h4>你的GPA是<strong>{{gpa}}</strong>哦！</h4>
         {% endif %}
-    </h2>
+
     <p>(此结果仅用于参考,具体以教务处公开内容为准)</p>
         {% if result_list %}
         {% for key, value in range.items %}

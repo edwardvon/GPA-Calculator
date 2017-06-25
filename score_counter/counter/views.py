@@ -7,13 +7,14 @@ from .models import Major,Detail,Score,MajorScore
 import json
 
 # Create your views here.
-stu_name = ''
 
 def index(request):
     return render(request, 'index.html')
 
+def guide(request):
+    pass
+
 def submit(request):
-    global stu_name
     #成绩单内容获取，并分割，内容中主要存在空格和制表符\t
     gpa_content = request.POST['content']
     #大学英语中“A level”的空格会影响分割
@@ -34,13 +35,14 @@ def submit(request):
     #成绩单内容以学期分割
     result_list = spilt_by_term(gpa_content, stu_number)
     #课程条目插入数据库
-    score_insert(result_list,stu_number,major.number)
+    score_insert(result_list,stu_number,major.number,stu_name)
     return HttpResponseRedirect(reverse('counter:detail', args=(stu_number,)))
 
 def detail(request,stu_num):
-    global stu_name
     stu_num = int(stu_num)
-    stu_class_num = Score.objects.filter(stu_num=stu_num)[0].class_num
+    a = Score.objects.filter(stu_num=stu_num)[0]
+    stu_class_num = a.class_num
+    stu_name = a.stu_name
     major = Major.objects.get(number=stu_class_num)
     MajorScore.objects.majorscore_init(stu_num,stu_class_num)
     result_list = MajorScore.objects.filter(stu_num=stu_num)
@@ -59,6 +61,7 @@ def result(request,stu_num):
     result_list = MajorScore.objects.filter(stu_num=stu_num,type__lte=2)
     score_request = Major.objects.get_scorerequest(result_list[0].class_num)
     sele_list = Score.objects.filter(type=3,stu_num=stu_num)
+    stu_name = sele_list[0].stu_name
     sele_total = sum(i.get_point for i in sele_list)
     gpa = Score.objects.get_gpa(stu_num)
     context={
@@ -129,10 +132,10 @@ def spilt_by_term(content_list, item):
             lesson_single.append(a[:-1])
     return lesson_single
 #
-def score_insert(list,stu_num,class_num):
+def score_insert(list,stu_num,class_num,stu_name):
     for item in list:
         a = item[1:]
         a.append(str(stu_num))
         a.append(str(class_num))
-        Score.objects.score_init(a)
+        Score.objects.score_init(a,stu_name)
     return 1
