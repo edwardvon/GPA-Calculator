@@ -61,12 +61,17 @@ def detail(request,stu_num):
     return render(request, 'detail.html', context)
 
 def result(request,stu_num):
+    double = False
     MajorScore.objects.majorscore_join(stu_num)
     result_list = MajorScore.objects.filter(stu_num=stu_num,type__lte=2)
     score_request = Major.objects.get_scorerequest(result_list[0].class_num)
     sele_list = Score.objects.filter(type=3,stu_num=stu_num)
     stu_name = sele_list[0].stu_name
     sele_total = sum(i.get_point for i in sele_list)
+    sele_less =  score_request.score_sele - sele_total
+    if sele_less<0:
+        sele_less = -sele_less
+        double = True
     gpa = Score.objects.get_gpa(stu_num)
     context={
         'name': stu_name,
@@ -75,7 +80,8 @@ def result(request,stu_num):
         'sele_list':sele_list,
         'score_request': score_request,
         'sele_total': sele_total,
-        'less': score_request.score_sele - sele_total,
+        'less': sele_less,
+        'double': double,
         'gpa':("%.2f"%gpa),
     }
     return render(request, 'result.html', context)

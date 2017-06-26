@@ -45,7 +45,12 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>选修课程</h3>
             <h4>已修<strong>{{sele_total}}</strong>分，毕业要求选修课<strong>{{score_request.score_sele}}</strong>分,
-                缺<strong>{{less}}</strong>分</h4>
+                {% if double %}
+                超出了<strong>{{less}}</strong>分！你是双学位对吧？
+                {% else %}
+                缺<strong>{{less}}</strong>分
+                {% endif %}
+            </h4>
             <p>{{score_request.ps}}</p>
             {% if sele_list %}
             <table class="table table-striped table-condensed">
