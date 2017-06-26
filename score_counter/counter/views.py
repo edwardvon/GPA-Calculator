@@ -139,7 +139,7 @@ def spilt_by_term(content_list, item):
         #['序号','学期号','课程号','名称','类别（如必修）','学分','取得学分','成绩(ABCD)',
         # '绩点','学分绩点','备注（一般为空）']
         delta = 0
-        if term[10] =='':
+        if term[10] =='' or term[11]=='':
             delta = 1
         else:
             delta = 0
@@ -147,17 +147,15 @@ def spilt_by_term(content_list, item):
         for i in range((len(term)+1)//num_of_col):
             a = term[i*num_of_col:(i+1)*num_of_col]
             if delta==0:
-                if num_of_col == 12:
-                    del a[4]
                 lesson_single.append(a)
             else:
-                if num_of_col == 13:
-                    del a[4]
                 lesson_single.append(a[:-1])
     return lesson_single
 #
 def score_insert(list,stu_num,class_num,stu_name):
     for item in list:
+        if item[5]=='必修' or item[5]=='选修':
+            del item[5]
         a = item[1:]
         a.append(str(stu_num))
         a.append(str(class_num))
