@@ -49,10 +49,10 @@ class ScoreManager(models.Manager):
                 ''')
             result_list = []
             for row in cursor.fetchall():
-                p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
-                               point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
-                               gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
-                result_list.append(p)
+                # p = self.model(id=row[0], term=row[1], number=row[2], name=row[3], type_c=row[12], \
+                #                point=row[4], get_point=row[5], grade=row[6], gpa=row[7], \
+                #                gpa_t=row[8], type=row[9],stu_num=row[10],class_num=row[11])
+                result_list.append(row)
         return result_list
 
     def score_init(self,row,stu_name):

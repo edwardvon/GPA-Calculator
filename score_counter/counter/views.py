@@ -18,8 +18,8 @@ def submit(request):
     #成绩单内容获取，并分割，内容中主要存在空格和制表符\t
     gpa_content = request.POST['content']
     #大学英语中“A level”的空格会影响分割
-    gpa_content = gpa_content.replace(' level','level').replace(':','\t').replace('\r',' ')\
-        .replace('\t',' ').replace('\n',' ')
+    gpa_content = gpa_content.replace(' level','level').replace(':','\t').replace('\r\n',' ')\
+        .replace('\t',' ')
     gpa_content = gpa_content.split(' ')
     #粗略判断内容是否为成绩表，否则提示error
     try:
