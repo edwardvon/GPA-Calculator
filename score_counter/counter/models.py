@@ -116,10 +116,13 @@ class MajorScoreManager(models.Manager):
             MajorScore.objects.filter(id=item.id).update(grade=min(a), if_complete=com)
         pe_list = MajorScore.objects.filter(lesson_num='53000100',stu_num=stu_number)
         pe_grades = Score.objects.filter(number__startswith='530001',stu_num=stu_number)
-        if len(pe_grades)<= len(pe_list):
+        if len(pe_grades)< len(pe_list):
             for i in range(len(pe_grades)):
                 com = 1
-                id = pe_list[i].id
+                try:
+                    id = pe_list[i].id
+                except:
+                    continue
                 gra = pe_grades[i].grade
                 if gra=='F' or gra==0:
                     com = 0
@@ -128,7 +131,10 @@ class MajorScoreManager(models.Manager):
             pe_grades = sorted(pe_grades)
             for i in range(len(pe_list)):
                 com = 1
-                id = pe_list[i].id
+                try:
+                    id = pe_list[i].id
+                except:
+                    continue
                 gra = pe_grades[i].grade
                 if gra == 'F' or gra == 0:
                     com = 0
