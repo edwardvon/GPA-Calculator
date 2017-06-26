@@ -69,9 +69,6 @@ def result(request,stu_num):
     stu_name = sele_list[0].stu_name
     sele_total = sum(i.get_point for i in sele_list)
     sele_less =  score_request.score_sele - sele_total
-    if sele_less<0:
-        sele_less = -sele_less
-        double = True
     gpa = Score.objects.get_gpa(stu_num)
     context={
         'name': stu_name,
@@ -81,7 +78,6 @@ def result(request,stu_num):
         'score_request': score_request,
         'sele_total': sele_total,
         'less': sele_less,
-        'double': double,
         'gpa':("%.2f"%gpa),
     }
     return render(request, 'result.html', context)
