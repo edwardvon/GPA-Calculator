@@ -15,19 +15,23 @@ def guide(request):
     return render(request, 'guide.html')
 
 def submit(request):
+    delta = 1
     #成绩单内容获取，并分割，内容中主要存在空格和制表符\t
     gpa_content = request.POST['content']
     #大学英语中“A level”的空格会影响分割
-    gpa_content = gpa_content.replace(' level','level').replace(':','\t').replace('\r\n',' ')\
-        .replace('\t',' ')
+    if gpa_content.find('\t'):
+        gpa_content = gpa_content.replace('\t', '\r\n')
+        delta = 0
+    gpa_content = gpa_content.replace(' level','level').replace(':',' ').replace('\r\n',' ').replace('  ', ' ')
+
     gpa_content = gpa_content.split(' ')
     #粗略判断内容是否为成绩表，否则提示error
-    try:
-        index = gpa_content.index('绩点')
-        index = gpa_content.index('姓名')
-    except ValueError:
-        return render(request, 'index.html', {'error_message': "同学！你是不是复制错了？看看说明吧",
-                                              'gpa_content':gpa_content,})
+    # try:
+    # index = gpa_content.index('绩点')
+    index = gpa_content.index('姓名')
+    # except ValueError:
+    #     return render(request, 'index.html', {'error_message': "同学！你是不是复制错了？看看说明吧",
+    #                                           'gpa_content':gpa_content,})
     stu_number = gpa_content[index-1]
     stu_name = gpa_content[index+1]
     stu_class_name = gpa_content[index+5]
@@ -61,7 +65,7 @@ def detail(request,stu_num):
     return render(request, 'detail.html', context)
 
 def result(request,stu_num):
-    double = False
+    double1 = False
     MajorScore.objects.majorscore_join(stu_num)
     result_list = MajorScore.objects.filter(stu_num=stu_num,type__lte=2)
     score_request = Major.objects.get_scorerequest(result_list[0].class_num)
@@ -69,6 +73,8 @@ def result(request,stu_num):
     stu_name = sele_list[0].stu_name
     sele_total = sum(i.get_point for i in sele_list)
     sele_less =  score_request.score_sele - sele_total
+    if sele_less<0:
+        double1 = True
     gpa = Score.objects.get_gpa(stu_num)
     context={
         'name': stu_name,
@@ -77,6 +83,7 @@ def result(request,stu_num):
         'sele_list':sele_list,
         'score_request': score_request,
         'sele_total': sele_total,
+        'double1': double1,
         'less': sele_less,
         'gpa':("%.2f"%gpa),
     }
@@ -131,11 +138,22 @@ def spilt_by_term(content_list, item):
         #这里将课程逐条切出
         #['序号','学期号','课程号','名称','类别（如必修）','学分','取得学分','成绩(ABCD)',
         # '绩点','学分绩点','备注（一般为空）']
+        delta = 0
+        if term[10] =='':
+            delta = 1
+        else:
+            delta = 0
+        num_of_col = num_of_col+delta
         for i in range((len(term)+1)//num_of_col):
             a = term[i*num_of_col:(i+1)*num_of_col]
-            if num_of_col==12:
-                del a[4]
-            lesson_single.append(a[:-1])
+            if delta==0:
+                if num_of_col == 12:
+                    del a[4]
+                lesson_single.append(a)
+            else:
+                if num_of_col == 13:
+                    del a[4]
+                lesson_single.append(a[:-1])
     return lesson_single
 #
 def score_insert(list,stu_num,class_num,stu_name):
