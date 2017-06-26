@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>GPAGET新手教程</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+	.carousel-control.left {
+        background-image:none;
+	}
+	.carousel-control.right	{
+        background-image:none;
+	}
+	.widescreen{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.jumbotron p{
+		font-size: 18px;
+	}
+	.mask {
+		/*background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0.6));*/
+		color: #fff;
+		width: 100%;
+		left: 0;
+		padding: 10px 10px;
+		bottom: 5px;
+		/*border-radius: 20px;*/
+	}
+	</style>
+</head>
+<body>
+    {% load static %}
+
+<div>
+	<div class="clearfix">
+		<div class="col-md-12 column widescreen">
+			<div class="carousel slide" id="carousel-490003">
+				<ol class="carousel-indicators" style="bottom: -10px">
+					<li data-slide-to="0" data-target="#carousel-490003">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-490003">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-490003">
+					</li>
+					<li data-slide-to="3" data-target="#carousel-490003" class="active">
+					</li>
+				</ol>
+				<div class="carousel-inner" >
+					<div class="item active">
+						<img alt="" src="{% static "newedu2.jpg" %}" />
+						<div class="carousel-caption mask">
+							<h4>
+								如何使用GPAGET?
+							</h4>
+							<h4>
+								开始查看新手教程
+							</h4>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="{% static "Step1.jpg" %}" />
+						<div class="carousel-caption mask">
+							<h4>
+								Step 1：复制各学期成绩
+							</h4>
+							<p>
+								登陆深大内部网教务系统，完整复制（ctrl+a全选）各学期成绩，粘贴到查询页的输入框。页面底部附上内部网登陆链接哦！
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="{% static "Step2.jpg" %}" />
+						<div class="carousel-caption mask">
+							<h4>
+								Step 2：确认您的培养方案
+							</h4>
+							<h4>
+								如果培养方案正确请click下确认键吧！如果有误可以修改哦！
+							</h4>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="{% static "Step3.jpg" %}" />
+						<div class="carousel-caption mask">
+							<h4>
+								Step 3：查看你的GPA和已修课程
+							</h4>
+							<h4>
+								小姐姐们为你玩命加载，告诉你距离毕业还差多少学分。
+							</h4>
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-490003" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-490003" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+			<center><h3 text-align="center">
+				滚动到页面底部，查看更多彩蛋！
+			</h3></center>
+			<center><p>
+				Please slide down for more details about GPAGET!
+			</p></center>
+		        <button type="button" class="btn btn-warning btn-lg btn-block">我已经完全了解新手教程，可以开始查询学分了！</button>
+			<div class="jumbotron">
+				<center><h2>
+					认真阅读，玩转GPAGET!
+				</h2></center>
+				<center>
+					<br><p>
+					<b>各学期成绩复制路径：</b>深大内部网-教务系统-学生个人信息-个学期成绩<br>
+					<a href="http://192.168.2.20/AXSXX/aCHENGJISTD.asp" target="_blank">校园网成绩查询（内网）</a>
+					<a href="http://edwardvon.ngrok.cc/student.aspx" target="_blank">非校园网成绩查询（仅测试）</a>
+					</p>
+					<p><b>请<strong style="color: #ff9800">完整</strong>复制个人成绩：</b>建议使用Ctrl+A（全选）Ctrl+C（复制）各学期成绩。<br>再Ctrl+V(粘贴)将个人成绩粘贴到主页输入框中。</p>
+					<p>本网站目前仅供深大学生使用，如有建议或BUG反馈，欢迎向<a href="mailto:#edwardvon246@gmail.com">Edward</a>联系。</p>
+				</center>
+				<p>
+					 <center><a class="btn btn-warning btn-large" href="{% url 'counter:index' %}">开始查询学分</a></center>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix" style="background:#E0E0E0">
+		<div class="col-md-4 column">
+			<h2>
+			</h2>
+			<address>
+
+                        </address>
+		</div>
+		<div class="col-md-4 column">
+			<h2>
+				Contact
+			</h2>
+			<address>
+				<strong>Creator:</strong>Edward·Von, Rujun·Tam<br>
+				<strong>Address:</strong>Shenzhen University<br>
+				<strong>Email:</strong><a href="mailto:#">edwardvon246@gmail.com</a>
+            </address>
+		</div>
+		<div class="col-md-4 column">
+			<h2>
+				About us
+			</h2>
+			<address>
+				<strong>Comment:</strong><br>First try for us to make this website,we cherish your comment about us.<br>
+				Welcome to contact us,tell us what you want more from GPAGET!<br>
+            </address>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

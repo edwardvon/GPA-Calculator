@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'index.html')
 
 def guide(request):
-    pass
+    return render(request, 'guide.html')
 
 def submit(request):
     #成绩单内容获取，并分割，内容中主要存在空格和制表符\t
