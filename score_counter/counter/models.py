@@ -56,13 +56,13 @@ class ScoreManager(models.Manager):
         return result_list
 
     def score_init(self,row,stu_name):
-        obj = Score.objects.filter(stu_num=row[-1],term=row[0],number=row[1])
+        obj = Score.objects.filter(stu_num=row[-2],term=row[0],number=row[1])
         if len(obj)==0:
             Score.objects.create(term=row[0], number=row[1], name=row[2], type_c=row[3],\
                        point=row[4], get_point=row[5], grade=row[6], gpa=row[7],\
                        gpa_t=row[8], stu_num=row[-2], class_num=row[-1],stu_name=stu_name,type=3)
         else:
-            obj.update(type=3,class_num=row[10],stu_name=stu_name)
+            obj.update(type=3,class_num=row[-1],stu_name=stu_name)
         return 1
 
     def get_gpa(self,stu_num):
@@ -122,10 +122,11 @@ class MajorScoreManager(models.Manager):
                 id = pe_list[i].id
             except:
                 continue
-            gra = pe_grades[i].grade
+            gra = pe_grades[i]
             if gra=='F' or gra==0:
                 com = 0
-            MajorScore.objects.filter(id=id).update(grade=gra,if_complete=com)
+            MajorScore.objects.filter(id=id).update(grade=gra.grade,if_complete=com)
+            Score.objects.filter(id=gra.id).update(type=1)
         return 1
 
 class Major(models.Model):
